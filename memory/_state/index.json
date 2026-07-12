@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-12T03:17:07.586Z",
+  "entries": [
+    {
+      "id": "mem_system_identity",
+      "path": "profile/identity.md",
+      "summary": "No confirmed identity information is stored",
+      "type": "identity",
+      "topics": [],
+      "status": "active",
+      "pinned": true,
+      "updatedAt": "2026-07-12",
+      "related": [],
+      "contentHash": "e8cddbe669c2f056ebb27998e4edfee88f204c6f5601c97abb145d2dbfa6ad87"
+    },
+    {
+      "id": "mem_system_preferences",
+      "path": "profile/preferences.md",
+      "summary": "No confirmed preferences are stored",
+      "type": "preference",
+      "topics": [],
+      "status": "active",
+      "pinned": true,
+      "updatedAt": "2026-07-12",
+      "related": [],
+      "contentHash": "3446d10ac6bc9acf3129dcb2b9c4bcaf8ddcd37ebd5f41177a592c19c0e7feff"
+    },
+    {
+      "id": "mem_system_style",
+      "path": "profile/style.md",
+      "summary": "No confirmed writing style is stored",
+      "type": "style",
+      "topics": [],
+      "status": "active",
+      "pinned": true,
+      "updatedAt": "2026-07-12",
+      "related": [],
+      "contentHash": "7a2a6b0f929182edad24d8d5a5f3d8bf170039f75857bbb15aa79ad34d61349e"
+    },
+    {
+      "id": "mem_system_example_project",
+      "path": "projects/example-project/overview.md",
+      "summary": "Example project directory documentation",
+      "type": "project",
+      "topics": [],
+      "status": "active",
+      "pinned": false,
+      "project": "example-project",
+      "updatedAt": "2026-07-12",
+      "related": [],
+      "contentHash": "00b51dcd04027805857f5200f3fc8f7b65e01f703c76c803188139a2a68d2c20"
+    },
+    {
+      "id": "mem_system_example_state",
+      "path": "projects/example-project/STATE.md",
+      "summary": "Example project is an inactive structural placeholder",
+      "type": "project-state",
+      "topics": [],
+      "status": "active",
+      "pinned": false,
+      "project": "example-project",
+      "updatedAt": "2026-07-12",
+      "related": [],
+      "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
+    }
+  ]
+}

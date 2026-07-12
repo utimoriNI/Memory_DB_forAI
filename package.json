@@ -1,0 +1,55 @@
+{
+  "name": "ai-memory-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Local-first Markdown memory vault and MCP server for AI clients",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "ai-memory-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
+    "dev": "tsx watch src/index.ts",
+    "export-context": "tsx scripts/export-context.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "init-vault": "tsx scripts/init-vault.ts",
+    "lint": "eslint .",
+    "migrate-schema": "tsx scripts/migrate-schema.ts",
+    "rebuild-index": "tsx scripts/rebuild-index.ts",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "validate-vault": "tsx scripts/validate-vault.ts"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0",
+    "chokidar": "^4.0.0",
+    "fast-glob": "^3.3.0",
+    "gray-matter": "^4.0.3",
+    "pino": "^9.0.0",
+    "zod": "^3.24.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "@types/semver": "^7.5.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "prettier": "^3.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.0.0"
+  }
+}
