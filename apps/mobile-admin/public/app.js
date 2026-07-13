@@ -56,6 +56,30 @@ function proposalCard(proposal) {
   return button;
 }
 
+function humanSummary(proposal) {
+  const labels = {
+    project: "プロジェクトの概要",
+    "project-state": "プロジェクトの現在地",
+    session: "作業セッションの記録",
+    knowledge: "再利用できる知識",
+    goal: "目標"
+  };
+  const type = labels[proposal.frontmatter.type] || "長期記憶";
+  const action = proposal.frontmatter.proposedAction === "create" ? "新しく記録" : "更新";
+  const reason = proposal.frontmatter.reason || "将来の作業で参照できるよう残す候補です。";
+  const reviewBlock = /^## 人間向け要約\s*\n([\s\S]*?)(?=\n##\s|$)/m.exec(proposal.body)?.[1];
+  const source = reviewBlock || proposal.body;
+  const highlights = source
+    .split("\n")
+    .map((line) => line.replace(/^[-*]\s+/, "").trim())
+    .filter((line) => line && !line.startsWith("#"))
+    .slice(0, 4);
+  return {
+    text: `これは「${type}」として、${proposal.frontmatter.targetPath} に${action}する候補です。${reason}`,
+    highlights
+  };
+}
+
 async function refresh() {
   setStatus("Vaultを更新しています…");
   const data = await api("/api/dashboard");
@@ -82,6 +106,15 @@ async function openProposal(id) {
     $("#proposal-type").textContent =
       `${data.proposal.frontmatter.type} / ${data.proposal.frontmatter.proposedAction}`;
     $("#proposal-title").textContent = data.proposal.frontmatter.summary;
+    const explanation = humanSummary(data.proposal);
+    $("#proposal-human-summary").textContent = explanation.text;
+    const highlights = $("#proposal-highlights");
+    highlights.replaceChildren();
+    explanation.highlights.forEach((highlight) => {
+      const item = document.createElement("li");
+      item.textContent = highlight;
+      highlights.append(item);
+    });
     const meta = $("#proposal-meta");
     meta.replaceChildren();
     [

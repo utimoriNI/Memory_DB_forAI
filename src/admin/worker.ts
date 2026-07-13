@@ -1,5 +1,6 @@
 import { z } from "zod";
 import { GitHubApiError, GitHubGitDataClient } from "./github/git-data-client.js";
+import { PrefixedGitVaultGateway } from "./github/prefixed-gateway.js";
 import { AdminVaultService } from "./vault/admin-vault-service.js";
 
 interface AssetBinding {
@@ -12,6 +13,7 @@ interface Env {
   GITHUB_OWNER?: string;
   GITHUB_REPOSITORY?: string;
   GITHUB_BRANCH?: string;
+  GITHUB_VAULT_PATH?: string;
   GITHUB_TOKEN?: string;
 }
 
@@ -76,12 +78,15 @@ function serviceFor(env: Env): AdminVaultService {
     throw new Error("GitHub Vault connection is not configured");
   }
   return new AdminVaultService(
-    new GitHubGitDataClient({
-      owner: env.GITHUB_OWNER,
-      repository: env.GITHUB_REPOSITORY,
-      branch: env.GITHUB_BRANCH || "main",
-      token: env.GITHUB_TOKEN
-    })
+    new PrefixedGitVaultGateway(
+      new GitHubGitDataClient({
+        owner: env.GITHUB_OWNER,
+        repository: env.GITHUB_REPOSITORY,
+        branch: env.GITHUB_BRANCH || "main",
+        token: env.GITHUB_TOKEN
+      }),
+      env.GITHUB_VAULT_PATH || "memory"
+    )
   );
 }
 

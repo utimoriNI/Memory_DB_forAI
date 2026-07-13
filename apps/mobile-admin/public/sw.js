@@ -1,4 +1,4 @@
-const CACHE = "memory-vault-admin-v3";
+const CACHE = "memory-vault-admin-v5";
 const ASSETS = ["/", "/index.html", "/styles.css", "/app.js", "/manifest.webmanifest", "/icon.svg"];
 self.addEventListener("install", (event) =>
   event.waitUntil(

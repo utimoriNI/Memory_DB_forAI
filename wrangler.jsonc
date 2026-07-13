@@ -10,6 +10,7 @@
   "vars": {
     "GITHUB_OWNER": "utimorini",
     "GITHUB_REPOSITORY": "Memory_DB_forAI",
-    "GITHUB_BRANCH": "main"
+    "GITHUB_BRANCH": "main",
+    "GITHUB_VAULT_PATH": "memory"
   }
 }
