@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.ai-memory.journal-import</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/usr/bin/env</string>
+    <string>npm</string>
+    <string>run</string>
+    <string>journal:import</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/isikurahiromitu/Documents/AI_Memory_DB</string>
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin</string>
+    <key>JOURNAL_REPO_PATH</key>
+    <string>/Users/isikurahiromitu/Documents/Vaults/Journal</string>
+    <key>MEMORY_VAULT_PATH</key>
+    <string>/Users/isikurahiromitu/Documents/AI_Memory_DB/memory</string>
+  </dict>
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>7</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/tmp/ai-memory-journal-import.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/ai-memory-journal-import.error.log</string>
+</dict>
+</plist>

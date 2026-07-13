@@ -36,6 +36,17 @@ describe("memory frontmatter", () => {
     ).toThrow();
   });
 
+  it("normalizes YAML timestamp values to canonical date strings", () => {
+    const parsed = memoryFrontmatterSchema.parse({
+      ...validMemory,
+      createdAt: new Date("2026-07-12T00:00:00.000Z"),
+      updatedAt: new Date("2026-07-13T00:00:00.000Z")
+    });
+
+    expect(parsed.createdAt).toBe("2026-07-12");
+    expect(parsed.updatedAt).toBe("2026-07-13");
+  });
+
   it("requires approval before philosophy becomes active", () => {
     expect(() =>
       philosophyFrontmatterSchema.parse({

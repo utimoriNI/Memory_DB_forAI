@@ -23,6 +23,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "init-vault": "tsx scripts/init-vault.ts",
+    "journal:import": "tsx scripts/import-journal.ts",
     "lint": "eslint .",
     "migrate-schema": "tsx scripts/migrate-schema.ts",
     "rebuild-index": "tsx scripts/rebuild-index.ts",

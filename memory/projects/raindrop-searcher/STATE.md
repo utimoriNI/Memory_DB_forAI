@@ -8,7 +8,7 @@ topics:
   - semantic-search
   - vercel
   - github-actions
-status: staged
+status: active
 pinned: false
 confidence: 0.95
 importance: high
@@ -19,22 +19,21 @@ scope:
   - personal-knowledge-management
   - search
 project: raindrop-searcher
-createdAt: "2026-07-13"
-updatedAt: "2026-07-13"
-lastReviewedAt: "2026-07-13"
+createdAt: 2026-07-13
+updatedAt: 2026-07-13
+lastReviewedAt: 2026-07-13
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
-proposedAction: create
-targetPath: projects/raindrop-searcher/STATE.md
-riskLevel: low
-operationId: 8d541f0d-2c6a-47d0-8cc1-2fd4f51a0738
-proposalCreatedAt: "2026-07-13T00:00:00.000Z"
-reason: 現在の実装・運用状態を次回以降の作業で参照できるようにする。既存メモに Raindrop Searcher の記録はない。
 ---
 
 # Raindrop Searcher: project state
+
+## 人間向け要約
+
+- RaindropのブックマークとObsidianノートを、ひとつのWebアプリで横断検索するプロジェクトの現在地です。
+- 本番デプロイ、定期同期、検索改善、検索結果への評価機能まで実装済みです。
+- Webhookの本番確認や、検索結果の復元管理などが次の改善点として残っています。
 
 - Project: Raindrop Searcher
 - Purpose: Raindrop.io のブックマークと、GitHub 上の Obsidian Vault を一つのWebアプリで検索する。

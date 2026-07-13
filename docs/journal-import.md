@@ -2,6 +2,16 @@
 
 Journal is treated as a read-only primary source. MemoryDB does not read from or write to the Journal repository through this tool; Journal or an integration process sends one validated entry to the `journal_import_entry` MCP tool.
 
+For Codex-independent execution, `npm run journal:import` reads only `reflection/YYYY-MM-DD.md` from the configured Journal repository and imports the previous JST day's reflection by default. It writes only to MemoryDB's `_inbox/` through the existing lifecycle service.
+
+```sh
+JOURNAL_REPO_PATH=/Users/isikurahiromitu/Documents/Vaults/Journal \
+MEMORY_VAULT_PATH=/Users/isikurahiromitu/Documents/AI_Memory_DB/memory \
+npm run journal:import
+```
+
+Use `--date YYYY-MM-DD` for a specific day or `--all` for an explicit historical catch-up. The macOS `launchd` template is at `deploy/launchd/com.ai-memory.journal-import.plist.template`; it is configured for 07:00 local time, after Journal's 06:00 JST generation workflow.
+
 ## Import payload
 
 ```json

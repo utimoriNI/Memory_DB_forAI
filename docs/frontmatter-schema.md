@@ -35,3 +35,4 @@ Dates use `YYYY-MM-DD`. Confidence is from 0 through 1. `updatedAt` cannot prece
 Philosophy adds `philosophyDepth`, `reviewStatus`, `applicableScopes`, `exceptions`, `conflictsWith`, and positive integer `version`. Allowed depths are `philosophy-principle`, `implementation-principle`, `practical-ethics`, `important-theme`, and `derived-theme`.
 
 Staging files require `status: staged`, `reviewStatus: pending`, `proposedAction`, `targetPath`, and `riskLevel`. Actions are `create`, `update`, `merge`, `supersede`, and `archive`; risks are `low`, `medium`, and `high`. Profile, preference, active philosophy, decision-semantic changes, merge, supersede, and archive are always high risk.
+Dates use the canonical `YYYY-MM-DD` form. Quote dates when authoring Markdown Frontmatter; the reader also normalizes YAML timestamp values from existing files to that form.

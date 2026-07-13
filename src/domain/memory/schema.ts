@@ -25,7 +25,13 @@ export const memoryStatusSchema = z.enum([
 ]);
 
 export const importanceSchema = z.enum(["low", "medium", "high"]);
-export const dateSchema = z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected YYYY-MM-DD");
+export const dateSchema = z.preprocess(
+  (value) =>
+    value instanceof Date && !Number.isNaN(value.getTime())
+      ? value.toISOString().slice(0, 10)
+      : value,
+  z.string().regex(/^\d{4}-\d{2}-\d{2}$/, "Expected YYYY-MM-DD")
+);
 export const memoryIdSchema = z.string().regex(/^mem_[A-Za-z0-9_-]{8,}$/);
 
 export const memoryFrontmatterObjectSchema = z.object({

@@ -13,7 +13,8 @@ Provide concise, approved, source-linked context to AI clients.
 
 ## Active projects
 
-- None confirmed.
+- [Personal Schedule MCP v1 is implemented and Google Calendar read access is verified](projects/personal-schedule-mcp/STATE.md)
+- [Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み](projects/raindrop-searcher/STATE.md)
 
 ## Current goals
 
@@ -34,4 +35,4 @@ Provide concise, approved, source-linked context to AI clients.
 - `sources/`: external-source references
 - `_staging/`: pending proposals
 
-Last updated: 2026-07-13T16:00:07.166Z
+Last updated: 2026-07-13T15:54:47.811Z

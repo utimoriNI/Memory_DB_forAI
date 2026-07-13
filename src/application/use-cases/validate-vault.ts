@@ -18,6 +18,8 @@ export async function validateVault(
   let checkedMemories = 0;
   let pinnedCount = 0;
   for (const file of await markdown.listMarkdown({ includeStaging: true, includeArchived: true })) {
+    // Inbox documents are unclassified source material, not formal memories.
+    if (file.startsWith("_inbox/")) continue;
     try {
       const document = file.startsWith("_staging/")
         ? await markdown.readProposal(file)

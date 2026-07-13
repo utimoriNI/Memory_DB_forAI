@@ -1,8 +1,6 @@
 ---
 id: mem_session_personal_schedule_mcp_initial_implementation
-summary: >-
-  Initial Personal Schedule MCP implementation, external integration setup, and
-  verification session
+summary: Initial Personal Schedule MCP implementation, external integration setup, and verification session
 type: session
 topics:
   - mcp
@@ -10,34 +8,30 @@ topics:
   - google-oauth
   - notion
   - verification
-status: staged
+status: active
 pinned: false
 confidence: 0.95
 importance: medium
 source:
-  - "codex:session-2026-07-11-to-2026-07-13"
+  - codex:session-2026-07-11-to-2026-07-13
 scope:
   - personal-productivity
 project: personal-schedule-mcp
-createdAt: "2026-07-13"
-updatedAt: "2026-07-13"
+createdAt: 2026-07-13
+updatedAt: 2026-07-13
 lastReviewedAt: null
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
-proposedAction: create
-targetPath: >-
-  projects/personal-schedule-mcp/sessions/2026-07-11-to-2026-07-13-initial-implementation.md
-riskLevel: low
-operationId: schedule-mcp-session-20260713
-proposalCreatedAt: "2026-07-13T12:52:02.845Z"
-reason: >-
-  Preserve the initial implementation and verification work as session history
-  without treating it as current state.
 ---
 
 # Initial implementation session
+
+## 人間向け要約
+
+- Personal Schedule MCPの初回実装・外部サービス接続・動作確認を記録する作業ログです。
+- Google Calendarの予定操作とNotionタスク操作を実装し、Calendarの実データ読み取りまで確認しました。
+- Notionへの実書き込み確認とCodexへの常設登録は、次回に持ち越しています。
 
 ## Completed work
 
