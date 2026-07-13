@@ -31,7 +31,7 @@ function calculateContentHash(entry: JournalImportEntry): string {
 export class JournalImportService {
   public constructor(private readonly lifecycle: MemoryLifecycleService) {}
 
-  public async importEntry(input: JournalImportEntry): Promise<JournalImportResult> {
+  public async importEntry(input: unknown): Promise<JournalImportResult> {
     const entry = journalImportEntrySchema.parse(input);
     const contentHash = calculateContentHash(entry);
     if (entry.contentHash && entry.contentHash !== contentHash) {
@@ -53,6 +53,13 @@ export class JournalImportService {
       operationId
     });
 
-    return { path, entryId: entry.entryId, version: entry.version, operationId, contentHash, source };
+    return {
+      path,
+      entryId: entry.entryId,
+      version: entry.version,
+      operationId,
+      contentHash,
+      source
+    };
   }
 }
