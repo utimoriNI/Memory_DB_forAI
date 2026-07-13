@@ -17,7 +17,7 @@ It deliberately does not offer direct editing of formal profile, preference, phi
 
 ## Deployment
 
-The Worker configuration is in `wrangler.jsonc` and static PWA files are in `apps/mobile-admin/public/`.
+The Worker configuration is in `wrangler.jsonc` and static PWA files are in `apps/mobile-admin/public/`. `GITHUB_VAULT_PATH` identifies the Vault directory inside the repository (this repository uses `memory`).
 
 ```sh
 cp .dev.vars.example .dev.vars
