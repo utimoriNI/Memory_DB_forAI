@@ -13,6 +13,7 @@
 - Minimize personal and third-party information.
 - Obsidian access is read-only; writes are constrained to the AI Vault.
 - Journal import accepts relative source references only, does not read or write the Journal repository, and stores imported material only under `_inbox/`.
+- The optional daily GitHub Actions extractor secret-screens Inbox material before model submission, sends only unprocessed Inbox text plus a compact memory-index summary, and stores `OPENAI_API_KEY` only in GitHub Actions Secrets. It creates staging candidates only.
 - Raindrop credentials, if an adapter later needs them, stay in process environment and never enter Markdown.
 
 ## Mobile admin PWA
