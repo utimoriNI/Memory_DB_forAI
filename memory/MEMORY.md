@@ -13,7 +13,7 @@ Provide concise, approved, source-linked context to AI clients.
 
 ## Active projects
 
-- None confirmed.
+- [Personal Schedule MCP v1 is implemented and Google Calendar read access is verified](projects/personal-schedule-mcp/STATE.md)
 
 ## Current goals
 
@@ -34,4 +34,4 @@ Provide concise, approved, source-linked context to AI clients.
 - `sources/`: external-source references
 - `_staging/`: pending proposals
 
-Last updated: 2026-07-13T15:54:05.843Z
+Last updated: 2026-07-13T15:54:36.707Z

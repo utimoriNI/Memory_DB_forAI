@@ -1,7 +1,28 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-13T15:54:05.843Z",
+  "generatedAt": "2026-07-13T15:54:36.707Z",
   "entries": [
+    {
+      "id": "mem_project_personal_schedule_mcp_state",
+      "path": "_archive/approved/mem_project_personal_schedule_mcp_state.md",
+      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
+      "type": "project-state",
+      "topics": [
+        "mcp",
+        "google-calendar",
+        "notion",
+        "project-state"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "3ffdda8b261be074ab091817af0ccca380d63c8bf2b86c5f30706df0ec14b807"
+    },
     {
       "id": "mem_project_personal_schedule_mcp",
       "path": "_archive/approved/mem_project_personal_schedule_mcp.md",
@@ -45,27 +66,6 @@
       "updatedAt": "2026-07-13",
       "related": [],
       "contentHash": "1e392fef4b88645b75944d50d0b9951477a0a49b195d1e40fafe7863b6f10689"
-    },
-    {
-      "id": "mem_project_personal_schedule_mcp_state",
-      "path": "_staging/mem_project_personal_schedule_mcp_state.md",
-      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
-      "type": "project-state",
-      "topics": [
-        "mcp",
-        "google-calendar",
-        "notion",
-        "project-state"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "4a2ef33e4a800fb206f8c10cff7b139be4b05453fac9fd9aff60dd2687d87a81"
     },
     {
       "id": "mem_raindrop_searcher_state_20260713",
@@ -195,6 +195,27 @@
       "updatedAt": "2026-07-13",
       "related": [],
       "contentHash": "e8ba9032ba046d528d4e5f780397278c48e94ee71ea366ec972e2d414b52941e"
+    },
+    {
+      "id": "mem_project_personal_schedule_mcp_state",
+      "path": "projects/personal-schedule-mcp/STATE.md",
+      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
+      "type": "project-state",
+      "topics": [
+        "mcp",
+        "google-calendar",
+        "notion",
+        "project-state"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "964861cb6fcc4ed4e5f82ee859d5f31e84e8f04ef9e712441de19628049b6aac"
     }
   ]
 }

@@ -1,8 +1,6 @@
 ---
 id: mem_project_personal_schedule_mcp_state
-summary: >-
-  Personal Schedule MCP v1 is implemented and Google Calendar read access is
-  verified
+summary: Personal Schedule MCP v1 is implemented and Google Calendar read access is verified
 type: project-state
 topics:
   - mcp
@@ -14,25 +12,24 @@ pinned: false
 confidence: 0.95
 importance: high
 source:
-  - "codex:session-2026-07-11-to-2026-07-13"
+  - codex:session-2026-07-11-to-2026-07-13
 scope:
   - personal-productivity
 project: personal-schedule-mcp
-createdAt: "2026-07-13"
-updatedAt: "2026-07-13"
+createdAt: 2026-07-13
+updatedAt: 2026-07-13
 lastReviewedAt: null
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
+reviewStatus: approved
 proposedAction: create
 targetPath: projects/personal-schedule-mcp/STATE.md
 riskLevel: low
 operationId: schedule-mcp-state-20260713
-proposalCreatedAt: "2026-07-13T12:52:02.845Z"
-reason: >-
-  Initial current-state snapshot after implementation and live Google Calendar
-  read verification.
+proposalCreatedAt: 2026-07-13T12:52:02.845Z
+reason: Initial current-state snapshot after implementation and live Google Calendar read verification.
+reviewedAt: 2026-07-13T15:54:36.707Z
 ---
 
 # Personal Schedule MCP state
