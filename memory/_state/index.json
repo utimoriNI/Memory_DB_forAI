@@ -1,7 +1,29 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-13T15:53:50.571Z",
+  "generatedAt": "2026-07-13T15:54:05.843Z",
   "entries": [
+    {
+      "id": "mem_project_personal_schedule_mcp",
+      "path": "_archive/approved/mem_project_personal_schedule_mcp.md",
+      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
+      "type": "project",
+      "topics": [
+        "mcp",
+        "typescript",
+        "google-calendar",
+        "notion",
+        "personal-productivity"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "709bc97aeb49242c14f7e8c35fced6a0e117bfc6923977e69b8303f0b28b9cdc"
+    },
     {
       "id": "mem_session_personal_schedule_mcp_initial_implementation",
       "path": "_archive/approved/mem_session_personal_schedule_mcp_initial_implementation.md",
@@ -44,28 +66,6 @@
       "updatedAt": "2026-07-13",
       "related": [],
       "contentHash": "4a2ef33e4a800fb206f8c10cff7b139be4b05453fac9fd9aff60dd2687d87a81"
-    },
-    {
-      "id": "mem_project_personal_schedule_mcp",
-      "path": "_staging/mem_project_personal_schedule_mcp.md",
-      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
-      "type": "project",
-      "topics": [
-        "mcp",
-        "typescript",
-        "google-calendar",
-        "notion",
-        "personal-productivity"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "6902a4014e48798837c13d2ec608a7b9ce6752002a4532655f48ddb002ec02d6"
     },
     {
       "id": "mem_raindrop_searcher_state_20260713",
@@ -151,6 +151,28 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
+    },
+    {
+      "id": "mem_project_personal_schedule_mcp",
+      "path": "projects/personal-schedule-mcp/overview.md",
+      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
+      "type": "project",
+      "topics": [
+        "mcp",
+        "typescript",
+        "google-calendar",
+        "notion",
+        "personal-productivity"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "d0798c6903c0f33658243158716cb2b5b88d0223352aeb9e8c86b009c24807ea"
     },
     {
       "id": "mem_session_personal_schedule_mcp_initial_implementation",

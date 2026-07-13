@@ -1,8 +1,6 @@
 ---
 id: mem_project_personal_schedule_mcp
-summary: >-
-  Personal Schedule MCP project: Google Calendar and Notion task management
-  server
+summary: "Personal Schedule MCP project: Google Calendar and Notion task management server"
 type: project
 topics:
   - mcp
@@ -15,25 +13,24 @@ pinned: false
 confidence: 0.95
 importance: high
 source:
-  - "codex:session-2026-07-11-to-2026-07-13"
+  - codex:session-2026-07-11-to-2026-07-13
 scope:
   - personal-productivity
 project: personal-schedule-mcp
-createdAt: "2026-07-13"
-updatedAt: "2026-07-13"
+createdAt: 2026-07-13
+updatedAt: 2026-07-13
 lastReviewedAt: null
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
+reviewStatus: approved
 proposedAction: create
 targetPath: projects/personal-schedule-mcp/overview.md
 riskLevel: low
 operationId: schedule-mcp-project-20260713
-proposalCreatedAt: "2026-07-13T12:52:02.844Z"
-reason: >-
-  New project record based on the completed local implementation and
-  verification session.
+proposalCreatedAt: 2026-07-13T12:52:02.844Z
+reason: New project record based on the completed local implementation and verification session.
+reviewedAt: 2026-07-13T15:54:05.843Z
 ---
 
 # Personal Schedule MCP
