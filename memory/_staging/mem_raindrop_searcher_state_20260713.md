@@ -36,6 +36,12 @@ reason: 現在の実装・運用状態を次回以降の作業で参照できる
 
 # Raindrop Searcher: project state
 
+## 人間向け要約
+
+- RaindropのブックマークとObsidianノートを、ひとつのWebアプリで横断検索するプロジェクトの現在地です。
+- 本番デプロイ、定期同期、検索改善、検索結果への評価機能まで実装済みです。
+- Webhookの本番確認や、検索結果の復元管理などが次の改善点として残っています。
+
 - Project: Raindrop Searcher
 - Purpose: Raindrop.io のブックマークと、GitHub 上の Obsidian Vault を一つのWebアプリで検索する。
 - Phase: 本番運用の基盤と検索改善を実装済み。運用検証とUXの仕上げが残る。

@@ -37,6 +37,12 @@ reason: >-
 
 # Personal Schedule MCP state
 
+## 人間向け要約
+
+- Personal Schedule MCPの初期版は実装済みで、Google Calendarの読み取りも実機確認済みです。
+- 次はCodexへの常設登録と、Notionへの書き込み操作の確認を行う段階です。
+- iPhoneから直接使う仕組みは未解決で、別途安全なHTTP設計が必要です。
+
 - Project: Personal Schedule MCP
 - Purpose: Manage Google Calendar events and Notion tasks from MCP clients.
 - Current phase: Local stdio v1 implemented and verified.

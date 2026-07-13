@@ -39,6 +39,12 @@ reason: >-
 
 # Initial implementation session
 
+## 人間向け要約
+
+- Personal Schedule MCPの初回実装・外部サービス接続・動作確認を記録する作業ログです。
+- Google Calendarの予定操作とNotionタスク操作を実装し、Calendarの実データ読み取りまで確認しました。
+- Notionへの実書き込み確認とCodexへの常設登録は、次回に持ち越しています。
+
 ## Completed work
 
 - Created the npm and TypeScript MCP project with strict TypeScript, ESLint, Prettier, Vitest, and package lockfile.

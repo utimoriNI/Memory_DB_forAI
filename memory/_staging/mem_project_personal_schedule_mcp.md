@@ -38,6 +38,12 @@ reason: >-
 
 # Personal Schedule MCP
 
+## 人間向け要約
+
+- Google Calendarの予定とNotionの作業タスクを、AIクライアントから扱うための新しいMCPプロジェクトです。
+- 予定はGoogle Calendar、開発・学習などのタスクはNotionと役割を分けます。
+- 両者を自動同期する仕組みではなく、ローカルのMCPサーバーとして使います。
+
 ## Purpose
 
 A local TypeScript MCP server for managing fixed events in Google Calendar and work tasks in a Notion database.
