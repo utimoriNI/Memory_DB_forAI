@@ -50,7 +50,9 @@ export class JournalImportService {
       title: `Journal ${date} ${entry.entryId}`,
       content,
       source,
-      operationId
+      operationId,
+      receivedAt: entry.recordedAt,
+      now: new Date(`${date}T12:00:00.000Z`)
     });
 
     return {

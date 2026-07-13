@@ -85,6 +85,7 @@ The app sends an expected Git HEAD SHA with every mutation. If another device ch
 - [Vault structure](docs/vault-structure.md)
 - [Frontmatter schema](docs/frontmatter-schema.md)
 - [Memory lifecycle](docs/memory-lifecycle.md)
+- [Journal import](docs/journal-import.md)
 - [Approval flow](docs/approval-flow.md)
 - [Retrieval policy](docs/retrieval-policy.md)
 - [MCP tools](docs/mcp-tools.md)

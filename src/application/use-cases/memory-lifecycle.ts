@@ -73,6 +73,7 @@ export class MemoryLifecycleService {
     content: string;
     source: string;
     operationId?: string | undefined;
+    receivedAt?: string | undefined;
     now?: Date | undefined;
   }): Promise<string> {
     assertNoSecrets(input.content, input.source);
@@ -85,7 +86,7 @@ export class MemoryLifecycleService {
       source: [input.source],
       status: "inbox",
       operationId,
-      receivedAt: now.toISOString()
+      receivedAt: input.receivedAt ?? now.toISOString()
     });
     await this.markdown.writeSystemDocument(relativePath, content, { createOnly: true });
     return relativePath;

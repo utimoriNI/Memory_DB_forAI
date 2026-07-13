@@ -8,6 +8,8 @@
     "binding": "ASSETS"
   },
   "vars": {
+    "GITHUB_OWNER": "utimorini",
+    "GITHUB_REPOSITORY": "Memory_DB_forAI",
     "GITHUB_BRANCH": "main"
   }
 }

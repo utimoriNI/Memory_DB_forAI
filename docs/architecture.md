@@ -43,7 +43,7 @@ AI writes are proposals. A proposal records the proposed action and target but c
 
 ## Initial implementation status
 
-Phases 1–5 are implemented for the filesystem-backed release. The server exposes 23 tools over stdio and has an in-memory MCP integration test. Raindrop intentionally uses the provider interface and mock because no existing searcher was present. Remaining hardening includes richer semantic duplicate/conflict classification, production Raindrop integration, cross-process write locking, and broader scenario evaluation.
+Phases 1–5 are implemented for the filesystem-backed release. The server exposes 24 tools over stdio and has an in-memory MCP integration test. Raindrop intentionally uses the provider interface and mock because no existing searcher was present. Remaining hardening includes richer semantic duplicate/conflict classification, production Raindrop integration, cross-process write locking, and broader scenario evaluation.
 
 See [ADR-0001](adr/0001-markdown-source-of-truth.md).
 
