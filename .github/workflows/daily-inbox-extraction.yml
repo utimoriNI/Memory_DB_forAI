@@ -16,24 +16,32 @@ concurrency:
 jobs:
   extract:
     runs-on: ubuntu-latest
-    if: ${{ secrets.OPENAI_API_KEY != '' }}
+    env:
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
       - uses: actions/checkout@v4
         with:
           persist-credentials: true
+      - name: Skip until configured
+        if: ${{ env.OPENAI_API_KEY == '' }}
+        run: echo "OPENAI_API_KEY is not configured; skipping extraction."
       - uses: actions/setup-node@v4
+        if: ${{ env.OPENAI_API_KEY != '' }}
         with:
           node-version: 20
           cache: npm
       - run: npm ci
+        if: ${{ env.OPENAI_API_KEY != '' }}
       - name: Create staged memory candidates
+        if: ${{ env.OPENAI_API_KEY != '' }}
         run: npm run daily:extract
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
           MEMORY_DAILY_OPENAI_MODEL: gpt-5.4-mini
       - name: Validate generated Vault changes
+        if: ${{ env.OPENAI_API_KEY != '' }}
         run: npm run check
       - name: Commit generated candidates
+        if: ${{ env.OPENAI_API_KEY != '' }}
         run: |
           git add memory/_staging memory/_state/daily-inbox-extraction.json memory/_state/index.json memory/MEMORY.md
           if git diff --cached --quiet; then
