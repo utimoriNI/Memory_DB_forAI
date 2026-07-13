@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-13T15:54:36.707Z",
+  "generatedAt": "2026-07-13T15:54:47.811Z",
   "entries": [
     {
       "id": "mem_project_personal_schedule_mcp_state",
@@ -46,6 +46,29 @@
       "contentHash": "709bc97aeb49242c14f7e8c35fced6a0e117bfc6923977e69b8303f0b28b9cdc"
     },
     {
+      "id": "mem_raindrop_searcher_state_20260713",
+      "path": "_archive/approved/mem_raindrop_searcher_state_20260713.md",
+      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
+      "type": "project-state",
+      "topics": [
+        "raindrop",
+        "obsidian",
+        "semantic-search",
+        "vercel",
+        "github-actions"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "raindrop-searcher",
+      "scope": [
+        "personal-knowledge-management",
+        "search"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "e9f86c3b6e802c61d2519963592674767d49d0805aa3d502a59c3be807827a8b"
+    },
+    {
       "id": "mem_session_personal_schedule_mcp_initial_implementation",
       "path": "_archive/approved/mem_session_personal_schedule_mcp_initial_implementation.md",
       "summary": "Initial Personal Schedule MCP implementation, external integration setup, and verification session",
@@ -66,29 +89,6 @@
       "updatedAt": "2026-07-13",
       "related": [],
       "contentHash": "1e392fef4b88645b75944d50d0b9951477a0a49b195d1e40fafe7863b6f10689"
-    },
-    {
-      "id": "mem_raindrop_searcher_state_20260713",
-      "path": "_staging/mem_raindrop_searcher_state_20260713.md",
-      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
-      "type": "project-state",
-      "topics": [
-        "raindrop",
-        "obsidian",
-        "semantic-search",
-        "vercel",
-        "github-actions"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "raindrop-searcher",
-      "scope": [
-        "personal-knowledge-management",
-        "search"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "df98d8d42c3d828f662ad06d4322bb5105193102fbc21b243141a1aba530fc5d"
     },
     {
       "id": "mem_system_identity",
@@ -216,6 +216,29 @@
       "updatedAt": "2026-07-13",
       "related": [],
       "contentHash": "964861cb6fcc4ed4e5f82ee859d5f31e84e8f04ef9e712441de19628049b6aac"
+    },
+    {
+      "id": "mem_raindrop_searcher_state_20260713",
+      "path": "projects/raindrop-searcher/STATE.md",
+      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
+      "type": "project-state",
+      "topics": [
+        "raindrop",
+        "obsidian",
+        "semantic-search",
+        "vercel",
+        "github-actions"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "raindrop-searcher",
+      "scope": [
+        "personal-knowledge-management",
+        "search"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "a1ddaafe0e30d31ebfa9a6076ce5418f40089da9f59cc57dd6ce1a5ddb09fd41"
     }
   ]
 }
