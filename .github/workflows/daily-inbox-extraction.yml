@@ -1,0 +1,46 @@
+name: Daily Inbox extraction
+
+on:
+  schedule:
+    # 03:15 JST (GitHub schedules use UTC and may be delayed during high load).
+    - cron: "15 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-inbox-extraction
+  cancel-in-progress: false
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.OPENAI_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Create staged memory candidates
+        run: npm run daily:extract
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          MEMORY_DAILY_OPENAI_MODEL: gpt-5.4-mini
+      - name: Validate generated Vault changes
+        run: npm run check
+      - name: Commit generated candidates
+        run: |
+          git add memory/_staging memory/_state/daily-inbox-extraction.json memory/_state/index.json memory/MEMORY.md
+          if git diff --cached --quiet; then
+            echo "No Inbox candidates or state changes to commit."
+            exit 0
+          fi
+          git config user.name "ai-memory-vault-bot"
+          git config user.email "ai-memory-vault-bot@users.noreply.github.com"
+          git commit -m "memory: daily Inbox extraction"
+          git push

@@ -1,4 +1,5 @@
 import { parseMemoryFrontmatter, type MemoryFrontmatter } from "../../domain/memory/schema.js";
+import type { MemoryIndexEntry } from "../../domain/search/types.js";
 import { stagingProposalSchema, type StagingProposal } from "../../domain/staging/schema.js";
 import { createWholeFileDiff } from "../shared/diff.js";
 import {
@@ -7,7 +8,7 @@ import {
   proposalIdFromPath,
   serializeMarkdownFrontmatter
 } from "../shared/frontmatter.js";
-import type { GitChange, GitHubGitDataClient } from "../github/git-data-client.js";
+import type { GitChange, GitVaultGateway } from "../github/git-data-client.js";
 
 const SECRET_PATTERNS = [
   /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/i,
@@ -33,6 +34,12 @@ export interface LoadedProposal {
   raw: string;
   body: string;
   frontmatter: StagingProposal;
+}
+
+interface VaultSnapshot {
+  headSha: string;
+  files: Map<string, string>;
+  fileShas: Map<string, string>;
 }
 
 function isoDate(now: Date): string {
@@ -118,7 +125,11 @@ async function sha256(value: string): Promise<string> {
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-async function memoryIndexEntry(path: string, raw: string, frontmatter: MemoryFrontmatter) {
+async function memoryIndexEntry(
+  path: string,
+  raw: string,
+  frontmatter: MemoryFrontmatter
+): Promise<MemoryIndexEntry> {
   return {
     id: frontmatter.id,
     path,
@@ -134,6 +145,23 @@ async function memoryIndexEntry(path: string, raw: string, frontmatter: MemoryFr
     related: frontmatter.related ?? [],
     contentHash: await sha256(raw)
   };
+}
+
+function isMemoryIndexEntry(value: unknown): value is MemoryIndexEntry {
+  if (typeof value !== "object" || value === null || Array.isArray(value)) return false;
+  const entry = value as Record<string, unknown>;
+  return (
+    typeof entry.id === "string" &&
+    typeof entry.path === "string" &&
+    typeof entry.summary === "string" &&
+    typeof entry.type === "string" &&
+    Array.isArray(entry.topics) &&
+    typeof entry.status === "string" &&
+    typeof entry.pinned === "boolean" &&
+    typeof entry.updatedAt === "string" &&
+    Array.isArray(entry.related) &&
+    typeof entry.contentHash === "string"
+  );
 }
 
 function buildRoutingDocument(
@@ -191,7 +219,7 @@ Last updated: ${now.toISOString()}
 }
 
 export class AdminVaultService {
-  public constructor(private readonly git: GitHubGitDataClient) {}
+  public constructor(private readonly git: GitVaultGateway) {}
 
   public async dashboard(): Promise<{
     headSha: string;
@@ -218,9 +246,9 @@ export class AdminVaultService {
   public async getProposal(
     id: string
   ): Promise<{ headSha: string; proposal: LoadedProposal; diff: string }> {
-    const { headSha, files } = await this.#snapshot();
-    const proposal = this.#readProposal(files, id);
-    const current = files.get(proposal.frontmatter.targetPath) ?? "";
+    const snapshot = await this.#snapshot();
+    const proposal = this.#readProposal(snapshot.files, id);
+    const current = (await this.#readPath(snapshot, proposal.frontmatter.targetPath)) ?? "";
     const after =
       proposal.frontmatter.proposedAction === "archive"
         ? ""
@@ -229,7 +257,7 @@ export class AdminVaultService {
             proposal.body
           );
     return {
-      headSha,
+      headSha: snapshot.headSha,
       proposal,
       diff: createWholeFileDiff(current, after, proposal.frontmatter.targetPath)
     };
@@ -241,11 +269,13 @@ export class AdminVaultService {
     acknowledgeHighRisk: boolean;
   }): Promise<{ headSha: string; alreadyApplied?: boolean }> {
     const now = new Date();
-    const { headSha, files } = await this.#snapshot();
+    const snapshot = await this.#snapshot();
+    const { headSha, files } = snapshot;
     this.#assertExpectedHead(headSha, input.expectedHeadSha);
     const stagePath = proposalPath(input.id);
     if (!files.has(stagePath)) {
-      if (files.has(`_archive/approved/${input.id}.md`)) return { headSha, alreadyApplied: true };
+      if (snapshot.fileShas.has(`_archive/approved/${input.id}.md`))
+        return { headSha, alreadyApplied: true };
       throw new Error("Pending proposal not found");
     }
     const proposal = this.#readProposal(files, input.id);
@@ -253,7 +283,7 @@ export class AdminVaultService {
       throw new Error("High-risk proposal requires explicit acknowledgement");
     }
     const targetPath = formalTargetPath(proposal.frontmatter.targetPath);
-    const targetExists = files.has(targetPath);
+    const targetExists = snapshot.fileShas.has(targetPath);
     if (proposal.frontmatter.proposedAction === "create" && targetExists) {
       throw new Error(`Create target already exists: ${targetPath}`);
     }
@@ -268,7 +298,7 @@ export class AdminVaultService {
       { path: stagePath, content: null }
     ];
     if (proposal.frontmatter.proposedAction === "archive") {
-      const target = parseMarkdownFrontmatter(files.get(targetPath) ?? "");
+      const target = parseMarkdownFrontmatter((await this.#readPath(snapshot, targetPath)) ?? "");
       const archived = parseMemoryFrontmatter({
         ...target.attributes,
         status: "archived",
@@ -302,11 +332,13 @@ export class AdminVaultService {
     reason: string;
   }): Promise<{ headSha: string; alreadyApplied?: boolean }> {
     const now = new Date();
-    const { headSha, files } = await this.#snapshot();
+    const snapshot = await this.#snapshot();
+    const { headSha, files } = snapshot;
     this.#assertExpectedHead(headSha, input.expectedHeadSha);
     const stagePath = proposalPath(input.id);
     if (!files.has(stagePath)) {
-      if (files.has(`_archive/rejected/${input.id}.md`)) return { headSha, alreadyApplied: true };
+      if (snapshot.fileShas.has(`_archive/rejected/${input.id}.md`))
+        return { headSha, alreadyApplied: true };
       throw new Error("Pending proposal not found");
     }
     const proposal = this.#readProposal(files, input.id);
@@ -332,7 +364,8 @@ export class AdminVaultService {
     source: string;
   }): Promise<{ headSha: string; path: string }> {
     assertNoSecrets(input.title, input.content, input.source);
-    const { headSha, files } = await this.#snapshot();
+    const snapshot = await this.#snapshot();
+    const { headSha } = snapshot;
     this.#assertExpectedHead(headSha, input.expectedHeadSha);
     const now = new Date();
     const slug =
@@ -343,7 +376,7 @@ export class AdminVaultService {
         .replace(/^-|-$/g, "")
         .slice(0, 60) || "inbox";
     const path = `_inbox/${isoDate(now)}-${slug}-${crypto.randomUUID().slice(0, 8)}.md`;
-    if (files.has(path))
+    if (snapshot.fileShas.has(path))
       throw new Error("Generated Inbox path unexpectedly exists; retry the request");
     const raw = serializeMarkdownFrontmatter(
       {
@@ -362,10 +395,33 @@ export class AdminVaultService {
     return { ...result, path };
   }
 
-  async #snapshot(): Promise<{ headSha: string; files: Map<string, string> }> {
+  async #snapshot(): Promise<VaultSnapshot> {
     const headSha = await this.git.getHeadSha();
-    const files = await this.git.readFiles(headSha);
-    return { headSha, files: new Map(files.map((file) => [file.path, file.content])) };
+    const entries = await this.git.getTreeEntries(headSha);
+    const fileShas = new Map(entries.map((entry) => [entry.path, entry.sha]));
+    const required = entries.filter(
+      (entry) =>
+        entry.path === "_state/index.json" ||
+        (entry.path.startsWith(STAGING_PREFIX) && entry.path.endsWith(".md"))
+    );
+    const loaded = await Promise.all(
+      required.map((entry) => this.git.readFile(entry.path, entry.sha))
+    );
+    return {
+      headSha,
+      files: new Map(loaded.map((file) => [file.path, file.content])),
+      fileShas
+    };
+  }
+
+  async #readPath(snapshot: VaultSnapshot, path: string): Promise<string | null> {
+    const cached = snapshot.files.get(path);
+    if (cached !== undefined) return cached;
+    const sha = snapshot.fileShas.get(path);
+    if (!sha) return null;
+    const file = await this.git.readFile(path, sha);
+    snapshot.files.set(path, file.content);
+    return file.content;
   }
 
   #readProposal(files: Map<string, string>, id: string): LoadedProposal {
@@ -402,22 +458,45 @@ export class AdminVaultService {
     baseChanges: GitChange[],
     now: Date
   ): Promise<GitChange[]> {
-    const resulting = new Map(files);
-    for (const change of baseChanges) {
-      if (change.content === null) resulting.delete(change.path);
-      else resulting.set(change.path, change.content);
+    const indexRaw = files.get("_state/index.json");
+    if (!indexRaw)
+      throw new Error("Vault index is missing; rebuild the index before approving a proposal");
+    const parsedIndex: unknown = JSON.parse(indexRaw);
+    if (
+      typeof parsedIndex !== "object" ||
+      parsedIndex === null ||
+      !Array.isArray((parsedIndex as { entries?: unknown }).entries)
+    ) {
+      throw new Error("Vault index is invalid; rebuild the index before approving a proposal");
     }
-    const entries: Array<Awaited<ReturnType<typeof memoryIndexEntry>>> = [];
-    for (const [path, raw] of resulting) {
-      if (!path.endsWith(".md")) continue;
+    const existingEntries = (parsedIndex as { entries: unknown[] }).entries;
+    if (!existingEntries.every(isMemoryIndexEntry)) {
+      throw new Error("Vault index is invalid; rebuild the index before approving a proposal");
+    }
+    const entriesByPath = new Map(existingEntries.map((entry) => [entry.path, entry]));
+    for (const change of baseChanges) {
+      if (!change.path.endsWith(".md")) continue;
+      if (change.content === null) {
+        entriesByPath.delete(change.path);
+        continue;
+      }
       try {
-        const parsed = parseMarkdownFrontmatter(raw);
-        entries.push(await memoryIndexEntry(path, raw, parseMemoryFrontmatter(parsed.attributes)));
+        const parsed = parseMarkdownFrontmatter(change.content);
+        entriesByPath.set(
+          change.path,
+          await memoryIndexEntry(
+            change.path,
+            change.content,
+            parseMemoryFrontmatter(parsed.attributes)
+          )
+        );
       } catch {
-        // README, routing files, changelogs, and inbox material are not formal memories.
+        entriesByPath.delete(change.path);
       }
     }
-    entries.sort((left, right) => left.path.localeCompare(right.path));
+    const entries = [...entriesByPath.values()].sort((left, right) =>
+      left.path.localeCompare(right.path)
+    );
     const index = {
       schemaVersion: 1,
       generatedAt: now.toISOString(),

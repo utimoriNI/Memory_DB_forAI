@@ -47,11 +47,17 @@ Set `GITHUB_OWNER`, `GITHUB_REPOSITORY`, and `GITHUB_BRANCH` as non-secret Worke
 
 Cloudflare Workers start for a request and stop afterwards. There is no permanent Mac process, port forwarding, or iPhone-to-home-network dependency. GitHub is the shared synchronization point and its history is the audit log.
 
+To stay within the Worker subrequest limit, list and dashboard requests read only the derived
+`_state/index.json` and pending `_staging/*.md` files. Opening or approving a proposal reads its
+specific target file on demand. The Worker never fetches every Markdown blob in the repository for
+a single request. Keep the generated index committed and current; it is the routing aid that makes
+this bounded retrieval possible and remains reproducible from the Markdown source files.
+
 The reference PWA uses a simple per-tab administrator token to avoid storing a Git credential in the phone. For multiple reviewers or stronger identity controls, put the Worker behind Cloudflare Access (or replace the simple check with an organization SSO verifier) before giving access to other people.
 
 ## Recovery and limits
 
 - A bad approval is recoverable from Git history; create a new staged correction rather than rewriting history.
 - Rotate the administrator token and GitHub token after a device loss or suspected exposure.
-- The initial Worker reads the repository tree to regenerate derived routing/index data. Keep the AI Memory repository focused; do not place large binary assets or an unrelated Obsidian vault in it.
+- The Worker reads the repository tree but fetches only the derived index, pending proposals, and files needed by the current operation. Keep the AI Memory repository focused; do not place large binary assets or an unrelated Obsidian vault in it.
 - The PWA cache contains only application shell files, never Vault data or credentials. API responses are `no-store`.

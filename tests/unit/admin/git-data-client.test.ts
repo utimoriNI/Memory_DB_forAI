@@ -54,6 +54,7 @@ describe("GitHubGitDataClient", () => {
       base_tree: "tree-1",
       tree: [{ path: "_inbox/test.md", content: "hello\n" }]
     });
+    expect(new Headers(calls[0]?.init?.headers).get("User-Agent")).toBe("ai-memory-admin/0.1");
   });
 
   it("does not create a commit when the displayed head is stale", async () => {

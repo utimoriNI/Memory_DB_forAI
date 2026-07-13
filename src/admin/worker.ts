@@ -141,7 +141,18 @@ async function handleApi(request: Request, env: Env): Promise<Response> {
   return json({ error: { code: "NOT_FOUND", message: "API route not found." } }, 404);
 }
 
-function errorResponse(error: unknown): Response {
+export async function tokenFingerprint(value: string | undefined): Promise<string | null> {
+  if (!value) return null;
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0"))
+    .join("")
+    .slice(0, 12);
+}
+
+export function errorResponse(
+  error: unknown,
+  options: { tokenFingerprint?: string | null | undefined } = {}
+): Response {
   if (error instanceof z.ZodError) {
     return json(
       {
@@ -156,15 +167,52 @@ function errorResponse(error: unknown): Response {
   }
   if (error instanceof GitHubApiError) {
     const status = error.status === 401 || error.status === 403 ? 502 : error.status;
+    const providerError =
+      error.status === 401
+        ? {
+            code: "GITHUB_AUTHENTICATION_FAILED",
+            message: "GitHub rejected the Vault token. Replace GITHUB_TOKEN with a valid token."
+          }
+        : error.status === 403
+          ? {
+              code: "GITHUB_ACCESS_DENIED",
+              message:
+                "GitHub denied repository access. Check the token's Contents permission and any organization SSO approval."
+            }
+          : error.status === 404
+            ? {
+                code: "GITHUB_REPOSITORY_UNAVAILABLE",
+                message:
+                  "GitHub could not access the configured Vault repository or branch. Check GITHUB_OWNER, GITHUB_REPOSITORY, GITHUB_BRANCH, and token repository access."
+              }
+            : error.status === 429
+              ? {
+                  code: "GITHUB_RATE_LIMITED",
+                  message:
+                    "GitHub temporarily rate-limited the Vault request. Wait a few minutes and retry."
+                }
+              : {
+                  code: "VAULT_PROVIDER_ERROR",
+                  message: "The Vault provider could not complete this request. Try again later."
+                };
+    console.error(
+      JSON.stringify({
+        event: "github_vault_request_failed",
+        status: error.status,
+        retryable: error.retryable
+      })
+    );
     return json(
       {
-        error: {
-          code: status === 409 ? "STALE_VIEW" : "VAULT_PROVIDER_ERROR",
-          message:
-            status === 409
-              ? error.message
-              : "The Vault provider could not complete this request. Try again later."
-        }
+        error:
+          status === 409
+            ? { code: "STALE_VIEW", message: error.message }
+            : {
+                ...providerError,
+                ...(options.tokenFingerprint
+                  ? { diagnostic: { workerTokenFingerprint: options.tokenFingerprint } }
+                  : {})
+              }
       },
       status
     );
@@ -198,7 +246,7 @@ export default {
     try {
       return await handleApi(request, env);
     } catch (error) {
-      return errorResponse(error);
+      return errorResponse(error, { tokenFingerprint: await tokenFingerprint(env.GITHUB_TOKEN) });
     }
   }
 };

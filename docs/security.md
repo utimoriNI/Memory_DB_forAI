@@ -13,6 +13,7 @@
 - Minimize personal and third-party information.
 - Obsidian access is read-only; writes are constrained to the AI Vault.
 - Journal import accepts relative source references only, does not read or write the Journal repository, and stores imported material only under `_inbox/`.
+- The optional daily GitHub Actions extractor secret-screens Inbox material before model submission, sends only unprocessed Inbox text plus a compact memory-index summary, and stores `OPENAI_API_KEY` only in GitHub Actions Secrets. It creates staging candidates only.
 - Raindrop credentials, if an adapter later needs them, stay in process environment and never enter Markdown.
 
 ## Mobile admin PWA
@@ -24,5 +25,8 @@
 - The Worker rejects likely secrets in mobile Inbox capture, validates proposal Frontmatter before promotion, enforces high-risk acknowledgement, and returns no raw GitHub provider errors to the client.
 - Every mutation carries an expected HEAD SHA. Stale screens are rejected instead of being silently merged.
 - Git commits provide the immutable pre-change history for the remote path. Desktop filesystem operations continue to create local backups as documented.
+- The Worker only exposes a categorized GitHub failure (authentication, authorization, repository availability, or rate limit). It never returns the GitHub provider response body, token, or request headers to the browser.
+- An authenticated request may receive a 12-character SHA-256 token fingerprint with a GitHub provider failure. This lets the owner compare the deployed secret with a locally held token without revealing either token value.
+- GitHub REST calls include an explicit application `User-Agent`, as required by GitHub; a missing or invalid value is rejected with HTTP 403.
 
 Filesystem checks are authorization controls, not only validation. Tests must cover traversal, symlink escape, atomicity, backup, collision, and archive behavior.

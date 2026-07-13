@@ -21,7 +21,11 @@ function api(path, options = {}) {
     }
   }).then(async (response) => {
     const body = await response.json().catch(() => ({}));
-    if (!response.ok) throw new Error(body.error?.message || "通信に失敗しました。");
+    if (!response.ok) {
+      const fingerprint = body.error?.diagnostic?.workerTokenFingerprint;
+      const suffix = fingerprint ? `（Worker token fingerprint: ${fingerprint}）` : "";
+      throw new Error(`${body.error?.message || "通信に失敗しました。"}${suffix}`);
+    }
     return body;
   });
 }
@@ -140,19 +144,20 @@ $("#approve-button").addEventListener("click", () => mutate("approve"));
 $("#reject-button").addEventListener("click", () => mutate("reject"));
 $("#inbox-form").addEventListener("submit", async (event) => {
   event.preventDefault();
+  const form = event.currentTarget;
   try {
     setStatus("Inboxへ保存しています…");
-    const form = new FormData(event.currentTarget);
+    const formData = new FormData(form);
     await api("/api/inbox", {
       method: "POST",
       body: JSON.stringify({
         expectedHeadSha: state.headSha,
-        title: form.get("title"),
-        content: form.get("content"),
-        source: form.get("source")
+        title: formData.get("title"),
+        content: formData.get("content"),
+        source: formData.get("source")
       })
     });
-    event.currentTarget.reset();
+    form.reset();
     $("#inbox-source").value = "mobile-admin";
     await refresh();
   } catch (error) {

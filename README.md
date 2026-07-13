@@ -31,6 +31,7 @@ npm run build
 | `npm run validate-vault`                          | Validate Frontmatter, IDs, and pinned limits    |
 | `npm run admin:dev`                               | Run the mobile admin PWA locally with Wrangler  |
 | `npm run admin:deploy`                            | Deploy the mobile admin PWA and API             |
+| `npm run daily:extract`                           | Extract safe `_inbox/` candidates with OpenAI   |
 | `npm run rebuild-index`                           | Regenerate `_state/index.json` from Markdown    |
 | `npm run export-context -- general query project` | Export bounded context                          |
 | `npm run migrate-schema`                          | Run schema migrations (version 1 is a no-op)    |

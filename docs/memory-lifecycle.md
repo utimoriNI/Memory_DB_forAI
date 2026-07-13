@@ -2,9 +2,19 @@
 
 ```text
 source/log -> _inbox -> classify and compare -> _staging -> human review
+
                                                        |-> approve -> formal area
                                                        |-> reject  -> _archive/rejected
 ```
+
+## Optional daily cloud extraction
+
+The `daily-inbox-extraction` GitHub Actions workflow can run once per day without a Mac. It sends
+only unprocessed, secret-screened Inbox items and a compact memory-index summary to the configured
+OpenAI API model. It can create only new `knowledge` proposals in `_staging/`; it never promotes a
+proposal or changes profile, preferences, philosophy, decisions, project state, or other formal
+memory. A content-hash record under `_state/daily-inbox-extraction.json` makes unchanged Inbox
+items idempotent. Configure `OPENAI_API_KEY` only as a GitHub Actions Secret.
 
 Candidate classification is one of: new memory, update, duplicate, conflict, superseding candidate, or temporary/no retention. Every retained candidate cites its source and comparison evidence.
 

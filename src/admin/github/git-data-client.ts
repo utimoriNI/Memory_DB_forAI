@@ -16,6 +16,18 @@ export interface GitChange {
   content: string | null;
 }
 
+/** Minimal Git object API surface consumed by the admin lifecycle service. */
+export interface GitVaultGateway {
+  getHeadSha(): Promise<string>;
+  getTreeEntries(headSha: string): Promise<GitHubTreeEntry[]>;
+  readFile(path: string, sha: string): Promise<GitHubFile>;
+  commitChanges(input: {
+    expectedHeadSha: string;
+    changes: GitChange[];
+    message: string;
+  }): Promise<{ headSha: string; commitSha: string }>;
+}
+
 interface GitRefResponse {
   object: { sha: string };
 }
@@ -57,7 +69,7 @@ function decodeBase64Utf8(value: string): string {
   return new TextDecoder().decode(bytes);
 }
 
-export class GitHubGitDataClient {
+export class GitHubGitDataClient implements GitVaultGateway {
   readonly #baseUrl: string;
 
   public constructor(
@@ -140,7 +152,8 @@ export class GitHubGitDataClient {
         Accept: "application/vnd.github+json",
         Authorization: `Bearer ${this.options.token}`,
         "Content-Type": "application/json",
-        "X-GitHub-Api-Version": "2022-11-28"
+        "X-GitHub-Api-Version": "2022-11-28",
+        "User-Agent": "ai-memory-admin/0.1"
       },
       ...(init.body === undefined ? {} : { body: JSON.stringify(init.body) })
     });
