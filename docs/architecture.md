@@ -46,3 +46,15 @@ AI writes are proposals. A proposal records the proposed action and target but c
 Phases 1–5 are implemented for the filesystem-backed release. The server exposes 23 tools over stdio and has an in-memory MCP integration test. Raindrop intentionally uses the provider interface and mock because no existing searcher was present. Remaining hardening includes richer semantic duplicate/conflict classification, production Raindrop integration, cross-process write locking, and broader scenario evaluation.
 
 See [ADR-0001](adr/0001-markdown-source-of-truth.md).
+
+## Mobile administration boundary
+
+The optional `src/admin/worker.ts` is a Cloudflare Worker plus static PWA assets. It is not an alternative database and does not run the local MCP server. It reads and writes the same Markdown files through GitHub's Git object API, grouping a lifecycle mutation into one commit. The Worker rebuilds the derived index and routing `MEMORY.md` as part of approved/rejected mutations.
+
+```text
+iPhone PWA -- temporary admin access token --> Worker
+Worker -- GitHub token kept in secret store --> private Git repository
+Desktop MCP <--- local cloned Markdown Vault --- Git pull/push ---> Git repository
+```
+
+The request includes the Git commit SHA observed while the reviewer inspected the proposal. The Worker compares it before creating a tree/commit and again at ref update time, preventing a stale review from overwriting newer work.

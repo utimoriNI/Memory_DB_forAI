@@ -2,7 +2,7 @@
 
 Every tool uses a strict Zod input schema and a consistent success/error envelope. Mutation tools never infer human approval.
 
-The initial server registers 23 tools over stdio. Tool failures return `isError: true` with stable code `MEMORY_TOOL_ERROR` and a non-secret message.
+The initial server registers 24 tools over stdio. Tool failures return `isError: true` with stable code `MEMORY_TOOL_ERROR` and a non-secret message.
 
 ## Read tools
 
@@ -21,6 +21,7 @@ The initial server registers 23 tools over stdio. Tool failures return `isError:
 ## Mutation tools
 
 - `inbox_add`: add raw source material.
+- `journal_import_entry`: import one validated Journal entry into `_inbox/` with provenance and content-hash idempotency.
 - `memory_propose`, `memory_propose_update`: create staged proposals.
 - `philosophy_propose`: create staged philosophy proposals only.
 - `project_propose_state_update`: propose a state snapshot update.

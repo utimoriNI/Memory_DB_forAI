@@ -13,6 +13,8 @@
     "templates"
   ],
   "scripts": {
+    "admin:deploy": "wrangler deploy",
+    "admin:dev": "wrangler dev",
     "build": "tsc -p tsconfig.build.json",
     "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
     "dev": "tsx watch src/index.ts",
@@ -38,6 +40,7 @@
     "fast-glob": "^3.3.0",
     "gray-matter": "^4.0.3",
     "pino": "^9.0.0",
+    "yaml": "^2.9.0",
     "zod": "^3.24.0"
   },
   "devDependencies": {
@@ -50,6 +53,7 @@
     "tsx": "^4.0.0",
     "typescript": "^5.7.0",
     "typescript-eslint": "^8.0.0",
-    "vitest": "^3.0.0"
+    "vitest": "^3.0.0",
+    "wrangler": "^4.110.0"
   }
 }

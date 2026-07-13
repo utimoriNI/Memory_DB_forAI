@@ -22,5 +22,21 @@ export default tseslint.config(
       "@typescript-eslint/no-floating-promises": "error"
     }
   },
+  {
+    files: ["apps/mobile-admin/public/**/*.js"],
+    languageOptions: {
+      globals: {
+        URL: "readonly",
+        FormData: "readonly",
+        caches: "readonly",
+        document: "readonly",
+        fetch: "readonly",
+        navigator: "readonly",
+        prompt: "readonly",
+        self: "readonly",
+        sessionStorage: "readonly"
+      }
+    }
+  },
   eslintConfigPrettier
 );

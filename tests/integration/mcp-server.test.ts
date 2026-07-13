@@ -27,14 +27,26 @@ describe("MCP server", () => {
     expect(tools.tools.map((tool) => tool.name)).toEqual(
       expect.arrayContaining([
         "memory_read_index",
+        "journal_import_entry",
         "staging_approve",
         "obsidian_search",
         "raindrop_search"
       ])
     );
-    expect(tools.tools).toHaveLength(23);
+    expect(tools.tools).toHaveLength(24);
     const result = await client.callTool({ name: "memory_read_index", arguments: {} });
     expect(JSON.stringify(result.content)).toContain("AI Memory Vault");
+    const imported = await client.callTool({
+      name: "journal_import_entry",
+      arguments: {
+        entryId: "journal-2026-07-13-001",
+        version: 1,
+        recordedAt: "2026-07-13T08:30:00+09:00",
+        journalPath: "entries/2026-07-13.md",
+        summary: "Journal import integration test"
+      }
+    });
+    expect(JSON.stringify(imported.content)).toContain("_inbox/");
     await client.close();
     await server.close();
   });

@@ -1,0 +1,14 @@
+# This repository is trusted on this Mac. Codex starts the server over stdio
+# whenever this project is opened.
+[mcp_servers.ai-memory]
+command = "/Users/isikurahiromitu/.local/share/mise/installs/node/lts/bin/node"
+args = ["dist/index.js"]
+cwd = "/Users/isikurahiromitu/Documents/AI_Memory_DB"
+enabled = true
+required = true
+startup_timeout_sec = 30
+default_tools_approval_mode = "writes"
+
+[mcp_servers.ai-memory.env]
+MEMORY_VAULT_PATH = "/Users/isikurahiromitu/Documents/AI_Memory_DB/memory"
+LOG_LEVEL = "warn"

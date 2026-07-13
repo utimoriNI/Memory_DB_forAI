@@ -3,6 +3,7 @@ import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import type { ZodType } from "zod";
 import { ContextBuilder } from "../application/use-cases/build-context.js";
 import { VaultInitializer } from "../application/use-cases/initialize-vault.js";
+import { JournalImportService } from "../application/use-cases/journal-import.js";
 import { MemoryLifecycleService } from "../application/use-cases/memory-lifecycle.js";
 import { RoutingIndexService } from "../application/use-cases/refresh-routing-index.js";
 import type { AppConfig } from "../config/env.js";
@@ -22,6 +23,7 @@ import {
   buildContextInputSchema,
   emptyInputSchema,
   inboxAddInputSchema,
+  journalImportInputSchema,
   memoryGetInputSchema,
   memorySearchInputSchema,
   obsidianGetInputSchema,
@@ -91,6 +93,7 @@ export async function createMemoryMcpServer(
   const search = new MarkdownSearchProvider(index, markdown);
   const context = new ContextBuilder(markdown, search);
   const lifecycle = new MemoryLifecycleService(markdown, index);
+  const journalImport = new JournalImportService(lifecycle);
   await new VaultInitializer(markdown, index).initialize();
 
   const server = new McpServer({ name: "ai-memory-system", version: "0.1.0" });
@@ -178,6 +181,12 @@ export async function createMemoryMcpServer(
     "Add unclassified source material to _inbox",
     inboxAddInputSchema,
     async (input) => ({ path: await lifecycle.addInbox(input) })
+  );
+  register(
+    "journal_import_entry",
+    "Import one Journal entry as unclassified source material into _inbox",
+    journalImportInputSchema,
+    async (input) => journalImport.importEntry(input)
   );
   register(
     "memory_propose",

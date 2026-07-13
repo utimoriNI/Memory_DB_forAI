@@ -1,0 +1,8 @@
+# Copy to .dev.vars for `npm run admin:dev`. Never commit the real file.
+# Create a narrowly scoped GitHub fine-grained token with Contents: Read and write
+# only for this private Vault repository. The PWA never receives this token.
+ADMIN_ACCESS_TOKEN=replace-with-a-long-random-value
+GITHUB_OWNER=your-github-user-or-organization
+GITHUB_REPOSITORY=Memory_DB_forAI
+GITHUB_BRANCH=main
+GITHUB_TOKEN=github-token-stored-only-in-worker-secret-or-dev-vars

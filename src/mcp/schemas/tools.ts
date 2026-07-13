@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { journalImportEntrySchema } from "../../domain/journal/schema.js";
 import { memoryStatusSchema, memoryTypeSchema } from "../../domain/memory/schema.js";
 import { proposedActionSchema } from "../../domain/staging/schema.js";
 
@@ -52,6 +53,7 @@ export const inboxAddInputSchema = z
     operationId: z.string().min(8).optional()
   })
   .strict();
+export const journalImportInputSchema = journalImportEntrySchema;
 export const proposeInputSchema = z
   .object({
     frontmatter: z.record(z.string(), z.unknown()),

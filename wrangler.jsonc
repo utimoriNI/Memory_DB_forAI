@@ -1,0 +1,13 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "ai-memory-admin",
+  "main": "src/admin/worker.ts",
+  "compatibility_date": "2026-07-13",
+  "assets": {
+    "directory": "apps/mobile-admin/public",
+    "binding": "ASSETS"
+  },
+  "vars": {
+    "GITHUB_BRANCH": "main"
+  }
+}
