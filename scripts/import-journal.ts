@@ -1,3 +1,5 @@
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import { createRuntime } from "./runtime.js";
 import { JournalImportService } from "../src/application/use-cases/journal-import.js";
 import { MemoryLifecycleService } from "../src/application/use-cases/memory-lifecycle.js";
@@ -8,6 +10,7 @@ interface Options {
   memoryVault?: string;
   dates?: string[];
   all: boolean;
+  pull: boolean;
 }
 
 function parseOptions(argv: string[]): Options {
@@ -15,6 +18,7 @@ function parseOptions(argv: string[]): Options {
   let memoryVault = process.env.MEMORY_VAULT_PATH;
   const dates: string[] = [];
   let all = false;
+  let pull = false;
 
   for (let index = 0; index < argv.length; index += 1) {
     const argument = argv[index];
@@ -22,6 +26,7 @@ function parseOptions(argv: string[]): Options {
     else if (argument === "--memory-vault") memoryVault = argv[++index];
     else if (argument === "--date") dates.push(argv[++index] ?? "");
     else if (argument === "--all") all = true;
+    else if (argument === "--pull") pull = true;
     else throw new Error(`Unknown argument: ${argument}`);
   }
 
@@ -35,7 +40,8 @@ function parseOptions(argv: string[]): Options {
     journalRoot,
     ...(memoryVault ? { memoryVault } : {}),
     ...(dates.length ? { dates } : {}),
-    all
+    all,
+    pull
   };
 }
 
@@ -53,6 +59,10 @@ function previousJstDate(): string {
 
 const options = parseOptions(process.argv.slice(2));
 if (options.memoryVault) process.env.MEMORY_VAULT_PATH = options.memoryVault;
+if (options.pull) {
+  const execFileAsync = promisify(execFile);
+  await execFileAsync("git", ["-C", options.journalRoot, "pull", "--ff-only", "--quiet"]);
+}
 
 const dates = options.all ? undefined : (options.dates ?? [previousJstDate()]);
 const reader = new JournalReflectionReader(options.journalRoot);

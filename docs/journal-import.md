@@ -4,13 +4,27 @@ Journal is treated as a read-only primary source. MemoryDB does not read from or
 
 For Codex-independent execution, `npm run journal:import` reads only `reflection/YYYY-MM-DD.md` from the configured Journal repository and imports the previous JST day's reflection by default. It writes only to MemoryDB's `_inbox/` through the existing lifecycle service.
 
+For execution while the Mac is powered off, use the MemoryDB GitHub Actions workflow at `.github/workflows/import-journal.yml`. It checks out `utimoriNI/Journal`, imports the previous JST day's reflection, validates the generated changes, and commits only `_inbox/` plus derived routing files to MemoryDB. The schedule is 07:00 JST.
+
+If Journal is private, add a read-only `JOURNAL_READ_TOKEN` repository secret to MemoryDB. If Journal is public, the default GitHub token is sufficient.
+
 ```sh
 JOURNAL_REPO_PATH=/Users/isikurahiromitu/Documents/Vaults/Journal \
 MEMORY_VAULT_PATH=/Users/isikurahiromitu/Documents/AI_Memory_DB/memory \
 npm run journal:import
 ```
 
-Use `--date YYYY-MM-DD` for a specific day or `--all` for an explicit historical catch-up. The macOS `launchd` template is at `deploy/launchd/com.ai-memory.journal-import.plist.template`; it is configured for 07:00 local time, after Journal's 06:00 JST generation workflow.
+Add `--pull` when the local Journal clone should first run `git pull --ff-only` to receive the latest committed reflection. A failed fast-forward stops the import instead of merging or overwriting Journal work.
+
+Use `--date YYYY-MM-DD` for a specific day or `--all` for an explicit historical catch-up. The macOS `launchd` template is at `deploy/launchd/com.ai-memory.journal-import.plist.template`; it is configured for 07:00 local time, after Journal's 06:00 JST generation workflow, and enables `--pull`.
+
+The active user LaunchAgent is `~/Library/LaunchAgents/com.ai-memory.journal-import.plist`. Logs are written to `/tmp/ai-memory-journal-import.log` and `/tmp/ai-memory-journal-import.error.log`. To stop it:
+
+```sh
+launchctl bootout gui/$(id -u) ~/Library/LaunchAgents/com.ai-memory.journal-import.plist
+```
+
+The LaunchAgent is only a local fallback. The GitHub Actions workflow is the primary schedule when the Mac may be powered off.
 
 ## Import payload
 

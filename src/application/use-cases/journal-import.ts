@@ -47,7 +47,7 @@ export class JournalImportService {
     const content = `# Journal entry\n\n- Entry ID: \`${entry.entryId}\`\n- Version: ${entry.version}\n- Recorded at: ${entry.recordedAt}\n- Journal path: \`${entry.journalPath}\`\n- Content hash: \`${contentHash}\`\n${projectLine}${topicsLine}\n## Summary\n\n${entry.summary}\n${transcript}\n## Import guidance\n\nClassify this source as a session, decision, goal, project-state, or reusable knowledge candidate. Check for duplicates, conflicts, and supersession before proposing formal memory.\n`;
 
     const path = await this.lifecycle.addInbox({
-      title: `Journal ${date} ${entry.entryId}`,
+      title: `Journal ${date}`,
       content,
       source,
       operationId,

@@ -10,6 +10,8 @@
     <string>npm</string>
     <string>run</string>
     <string>journal:import</string>
+    <string>--</string>
+    <string>--pull</string>
   </array>
   <key>WorkingDirectory</key>
   <string>/Users/isikurahiromitu/Documents/AI_Memory_DB</string>
