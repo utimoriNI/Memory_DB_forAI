@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-14T14:11:09.127Z",
+  "generatedAt": "2026-07-14T15:30:20.177Z",
   "entries": [
     {
       "id": "mem_session_ai_memory_admin_operations_20260714",
-      "path": "_staging/mem_session_ai_memory_admin_operations_20260714.md",
+      "path": "_archive/approved/mem_session_ai_memory_admin_operations_20260714.md",
       "summary": "スマホ向けAI Memory Vault管理画面を整備し、日本語要約付きの承認フローとGitHub連携を運用可能にした作業セッション",
       "type": "session",
       "topics": [
@@ -22,7 +22,7 @@
       ],
       "updatedAt": "2026-07-14",
       "related": [],
-      "contentHash": "33bc23e1b1c9789791f2c310707790fb7df0e5575c4337a68474e438f056f2d4"
+      "contentHash": "43279bc6994e845774fb149520447af2c812b37a5d7ce2e880f8318942e74a94"
     },
     {
       "id": "mem_system_identity",
@@ -59,6 +59,28 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "7a2a6b0f929182edad24d8d5a5f3d8bf170039f75857bbb15aa79ad34d61349e"
+    },
+    {
+      "id": "mem_session_ai_memory_admin_operations_20260714",
+      "path": "projects/ai-memory-system/sessions/2026-07-14-mobile-admin-and-operations.md",
+      "summary": "スマホ向けAI Memory Vault管理画面を整備し、日本語要約付きの承認フローとGitHub連携を運用可能にした作業セッション",
+      "type": "session",
+      "topics": [
+        "ai-memory-vault",
+        "mobile-admin",
+        "approval-workflow",
+        "cloudflare-workers",
+        "github"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "ai-memory-system",
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-14",
+      "related": [],
+      "contentHash": "5846ba6764649a32c1ac46ed1320f3e15d2548ab47516172dd78b08dd6918476"
     },
     {
       "id": "mem_system_example_project",
