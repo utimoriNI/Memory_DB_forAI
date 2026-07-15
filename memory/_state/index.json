@@ -1,7 +1,73 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-14T15:30:20.177Z",
+  "generatedAt": "2026-07-15T12:55:45.191Z",
   "entries": [
+    {
+      "id": "mem_project_personal_schedule_mcp_state",
+      "path": "_archive/approved/mem_project_personal_schedule_mcp_state.md",
+      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
+      "type": "project-state",
+      "topics": [
+        "mcp",
+        "google-calendar",
+        "notion",
+        "project-state"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "3ffdda8b261be074ab091817af0ccca380d63c8bf2b86c5f30706df0ec14b807"
+    },
+    {
+      "id": "mem_project_personal_schedule_mcp",
+      "path": "_archive/approved/mem_project_personal_schedule_mcp.md",
+      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
+      "type": "project",
+      "topics": [
+        "mcp",
+        "typescript",
+        "google-calendar",
+        "notion",
+        "personal-productivity"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "709bc97aeb49242c14f7e8c35fced6a0e117bfc6923977e69b8303f0b28b9cdc"
+    },
+    {
+      "id": "mem_raindrop_searcher_state_20260713",
+      "path": "_archive/approved/mem_raindrop_searcher_state_20260713.md",
+      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
+      "type": "project-state",
+      "topics": [
+        "raindrop",
+        "obsidian",
+        "semantic-search",
+        "vercel",
+        "github-actions"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "raindrop-searcher",
+      "scope": [
+        "personal-knowledge-management",
+        "search"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "e9f86c3b6e802c61d2519963592674767d49d0805aa3d502a59c3be807827a8b"
+    },
     {
       "id": "mem_session_ai_memory_admin_operations_20260714",
       "path": "_archive/approved/mem_session_ai_memory_admin_operations_20260714.md",
@@ -23,6 +89,197 @@
       "updatedAt": "2026-07-14",
       "related": [],
       "contentHash": "43279bc6994e845774fb149520447af2c812b37a5d7ce2e880f8318942e74a94"
+    },
+    {
+      "id": "mem_session_personal_schedule_mcp_initial_implementation",
+      "path": "_archive/approved/mem_session_personal_schedule_mcp_initial_implementation.md",
+      "summary": "Initial Personal Schedule MCP implementation, external integration setup, and verification session",
+      "type": "session",
+      "topics": [
+        "mcp",
+        "implementation",
+        "google-oauth",
+        "notion",
+        "verification"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "1e392fef4b88645b75944d50d0b9951477a0a49b195d1e40fafe7863b6f10689"
+    },
+    {
+      "id": "mem_fleeting_conversation_growth_20260715",
+      "path": "knowledge/conversation-growth-realization.md",
+      "summary": "質問、相手の話への入り方、会話のタイミングが分かるようになった成長の実感",
+      "type": "knowledge",
+      "topics": [
+        "conversation",
+        "self-development"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "b3050c21fe6bb360434dcebe5e8bec18435131db099fe82313de7e0229db7b58"
+    },
+    {
+      "id": "mem_fleeting_conversation_skill_growth_20260715",
+      "path": "knowledge/conversation-skill-growth-day.md",
+      "summary": "会話の苦手意識が軽減し、相手の話を受けて会話のリズムをつかめるようになった気づき",
+      "type": "knowledge",
+      "topics": [
+        "conversation",
+        "self-development"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "2ebf65a374ce50bc56f600ba834dfbb091ddc05090cce39460542d02823a1870"
+    },
+    {
+      "id": "mem_fleeting_dtm_learning_plan_20260715",
+      "path": "knowledge/dtm-learning-summary-and-plan.md",
+      "summary": "DTM学習の進捗、耳コピ、教材、作曲スキル向上の今後の計画",
+      "type": "knowledge",
+      "topics": [
+        "dtm",
+        "learning",
+        "composition"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "0e5db37f148289faaa35b90e596f5f71eaa6f942ccdb6fd5e9094fd1d4407b28"
+    },
+    {
+      "id": "mem_fleeting_effort_and_enjoyment_20260715",
+      "path": "knowledge/effort-and-enjoyment.md",
+      "summary": "不要な負担を減らすことと、試行錯誤の中に楽しさを見つけることの違い",
+      "type": "knowledge",
+      "topics": [
+        "philosophy",
+        "work",
+        "enjoyment"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "7027e500aead8764a51e940c8e8cf50dff1fd5a15f635c4bb42cd04ad2cc6308"
+    },
+    {
+      "id": "mem_fleeting_illustration_impression_20260715",
+      "path": "knowledge/illustration-impression-and-improvements.md",
+      "summary": "個々のパーツ内のコントラストを抑え、全体の明暗差と領域比率でマットな印象を作る考察",
+      "type": "knowledge",
+      "topics": [
+        "illustration",
+        "color",
+        "texture"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "f47a6c18a247e5b71d60dd41d3daece1abd06bbc3033273b7f883d9dcde4265e"
+    },
+    {
+      "id": "mem_fleeting_illustration_practice_plan_20260715",
+      "path": "knowledge/illustration-practice-and-plan.md",
+      "summary": "色遣いと質感を中心に練習し、将来のコミッション用ポートフォリオを準備する計画",
+      "type": "knowledge",
+      "topics": [
+        "illustration",
+        "practice",
+        "commission"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "38b6705724063dfe513f856cb6faf44c8ca2233eada49997e4cb5ef4f2400d24"
+    },
+    {
+      "id": "mem_fleeting_parenting_values_growth_20260715",
+      "path": "knowledge/parenting-values-and-growth.md",
+      "summary": "子供が親の子育てを肯定できるかという観点、親への感謝と支える行動",
+      "type": "knowledge",
+      "topics": [
+        "parenting",
+        "family",
+        "gratitude"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "ae4bca265396952d0a91aadc8724d6be9c397ed7c8446cc45e402d4787e4df44"
+    },
+    {
+      "id": "mem_fleeting_persistence_and_effort_20260715",
+      "path": "knowledge/persistence-and-effort.md",
+      "summary": "努力で成果が積み上がる活動を好む理由と、人間関係の不確実性への違和感",
+      "type": "knowledge",
+      "topics": [
+        "effort",
+        "motivation",
+        "relationships"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "741347f06890f9eaaf2ac794f4f874d2b5a93d444c6e23c1d2f7e2746ad42948"
+    },
+    {
+      "id": "mem_fleeting_parenting_correctness_20260715",
+      "path": "knowledge/what-makes-parenting-right.md",
+      "summary": "子育ての評価、親子の力関係の変化、親への感謝についての考え",
+      "type": "knowledge",
+      "topics": [
+        "parenting",
+        "family",
+        "gratitude"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "e280e758d9c6f4aa2b576c3bfd78e4b42b65e092b2709bdcf65ab6f0527241c6"
     },
     {
       "id": "mem_system_identity",
@@ -83,6 +340,29 @@
       "contentHash": "5846ba6764649a32c1ac46ed1320f3e15d2548ab47516172dd78b08dd6918476"
     },
     {
+      "id": "mem_session_ai_memory_extraction_reliability_20260715",
+      "path": "projects/ai-memory-system/sessions/2026-07-15-ai-memory-extraction-reliability.md",
+      "summary": "OpenAI 日次抽出と GitHub Actions 運用の安定化に関する作業セッション",
+      "type": "session",
+      "topics": [
+        "ai-memory-system",
+        "openai",
+        "github-actions",
+        "automation",
+        "testing"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "ai-memory-system",
+      "scope": [
+        "personal-knowledge-management",
+        "software-maintenance"
+      ],
+      "updatedAt": "2026-07-15",
+      "related": [],
+      "contentHash": "73c05b2b3860d175070e24e246ac3a99d62cf1045df13b7d3fff2be077a37721"
+    },
+    {
       "id": "mem_system_example_project",
       "path": "projects/example-project/overview.md",
       "summary": "Example project directory documentation",
@@ -107,6 +387,94 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
+    },
+    {
+      "id": "mem_project_personal_schedule_mcp",
+      "path": "projects/personal-schedule-mcp/overview.md",
+      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
+      "type": "project",
+      "topics": [
+        "mcp",
+        "typescript",
+        "google-calendar",
+        "notion",
+        "personal-productivity"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "d0798c6903c0f33658243158716cb2b5b88d0223352aeb9e8c86b009c24807ea"
+    },
+    {
+      "id": "mem_session_personal_schedule_mcp_initial_implementation",
+      "path": "projects/personal-schedule-mcp/sessions/2026-07-11-to-2026-07-13-initial-implementation.md",
+      "summary": "Initial Personal Schedule MCP implementation, external integration setup, and verification session",
+      "type": "session",
+      "topics": [
+        "mcp",
+        "implementation",
+        "google-oauth",
+        "notion",
+        "verification"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "e8ba9032ba046d528d4e5f780397278c48e94ee71ea366ec972e2d414b52941e"
+    },
+    {
+      "id": "mem_project_personal_schedule_mcp_state",
+      "path": "projects/personal-schedule-mcp/STATE.md",
+      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
+      "type": "project-state",
+      "topics": [
+        "mcp",
+        "google-calendar",
+        "notion",
+        "project-state"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "personal-schedule-mcp",
+      "scope": [
+        "personal-productivity"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "964861cb6fcc4ed4e5f82ee859d5f31e84e8f04ef9e712441de19628049b6aac"
+    },
+    {
+      "id": "mem_raindrop_searcher_state_20260713",
+      "path": "projects/raindrop-searcher/STATE.md",
+      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
+      "type": "project-state",
+      "topics": [
+        "raindrop",
+        "obsidian",
+        "semantic-search",
+        "vercel",
+        "github-actions"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "raindrop-searcher",
+      "scope": [
+        "personal-knowledge-management",
+        "search"
+      ],
+      "updatedAt": "2026-07-13",
+      "related": [],
+      "contentHash": "a1ddaafe0e30d31ebfa9a6076ce5418f40089da9f59cc57dd6ce1a5ddb09fd41"
     }
   ]
 }
