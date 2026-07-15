@@ -34,4 +34,4 @@ Provide concise, approved, source-linked context to AI clients.
 - `sources/`: external-source references
 - `_staging/`: pending proposals
 
-Last updated: 2026-07-14T14:11:09.127Z
+Last updated: 2026-07-15T08:11:56.678Z

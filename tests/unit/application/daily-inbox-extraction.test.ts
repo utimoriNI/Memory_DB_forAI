@@ -76,6 +76,48 @@ describe("daily Inbox extraction", () => {
     expect(requests).toBe(1);
   });
 
+  it("reads text from the Responses API output content", async () => {
+    const fetchMock: typeof fetch = () =>
+      Promise.resolve(
+        new Response(
+          JSON.stringify({
+            output: [
+              { type: "reasoning", summary: [] },
+              {
+                type: "message",
+                role: "assistant",
+                content: [
+                  {
+                    type: "output_text",
+                    text: JSON.stringify({
+                      items: [
+                        { sourcePath: inboxPath, action: "skip", reason: "Not durable enough." }
+                      ]
+                    }),
+                    annotations: []
+                  }
+                ]
+              }
+            ]
+          }),
+          { status: 200, headers: { "Content-Type": "application/json" } }
+        )
+      );
+
+    const result = await runDailyInboxExtraction({
+      markdown,
+      index,
+      apiKey: "not-a-real-key",
+      fetch: fetchMock,
+      now: new Date("2026-07-13T01:00:00.000Z")
+    });
+
+    expect(result.skipped).toContainEqual({
+      sourcePath: inboxPath,
+      reason: "Not durable enough."
+    });
+  });
+
   it("does not send suspected secrets to the model", async () => {
     await markdown.writeSystemDocument(
       "_inbox/secret.md",

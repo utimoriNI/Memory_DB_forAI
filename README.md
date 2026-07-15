@@ -40,6 +40,8 @@ npm run build
 | `npm test`                                        | Run Vitest once                                 |
 | `npm run check`                                   | Format, lint, type-check, and test              |
 
+Daily extraction requires `OPENAI_API_KEY`. It uses the Responses API and reads assistant text from the response output content; set `MEMORY_DAILY_OPENAI_MODEL` to override the default model.
+
 ## Codex MCP configuration
 
 Build the server, then add this to user-level `~/.codex/config.toml` or trusted project-level `.codex/config.toml`:
