@@ -8,7 +8,7 @@ topics:
   - approval-workflow
   - cloudflare-workers
   - github
-status: staged
+status: active
 pinned: false
 confidence: 0.95
 importance: high
@@ -18,19 +18,12 @@ source:
 scope:
   - personal-knowledge-management
 project: ai-memory-system
-createdAt: "2026-07-14"
-updatedAt: "2026-07-14"
+createdAt: 2026-07-14
+updatedAt: 2026-07-14
 lastReviewedAt: null
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
-proposedAction: create
-targetPath: projects/ai-memory-system/sessions/2026-07-14-mobile-admin-and-operations.md
-riskLevel: low
-operationId: ai-memory-admin-operations-20260714
-proposalCreatedAt: "2026-07-13T16:01:15.000Z"
-reason: スマホでの承認運用、GitHubを正本とするVault連携、候補内容の日本語表示に関する実装と運用判断を、次回の保守作業で参照できるようにする。
 ---
 
 # AI Memory Vault 管理画面・運用整備セッション
