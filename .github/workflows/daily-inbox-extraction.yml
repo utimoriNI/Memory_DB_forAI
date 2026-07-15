@@ -19,16 +19,16 @@ jobs:
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           persist-credentials: true
       - name: Skip until configured
         if: ${{ env.OPENAI_API_KEY == '' }}
         run: echo "OPENAI_API_KEY is not configured; skipping extraction."
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v5
         if: ${{ env.OPENAI_API_KEY != '' }}
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
       - run: npm ci
         if: ${{ env.OPENAI_API_KEY != '' }}

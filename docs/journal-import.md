@@ -6,7 +6,7 @@ For Codex-independent execution, `npm run journal:import` reads only `reflection
 
 For execution while the Mac is powered off, use the MemoryDB GitHub Actions workflow at `.github/workflows/import-journal.yml`. It checks out `utimoriNI/Journal`, imports the previous JST day's reflection, validates the generated changes, and commits only `_inbox/` plus derived routing files to MemoryDB. The schedule is 07:00 JST.
 
-If Journal is private, add a read-only `JOURNAL_READ_TOKEN` repository secret to MemoryDB. If Journal is public, the default GitHub token is sufficient.
+The workflow uses the `JOURNAL_READ_TOKEN` repository secret to checkout Journal. Add a fine-grained token with **Contents: Read-only** access to `utimoriNI/Journal` as a MemoryDB repository secret with that exact name. A token scoped only to MemoryDB, including the automatic `GITHUB_TOKEN`, cannot checkout a separate private repository and results in Git exit code 128.
 
 ```sh
 JOURNAL_REPO_PATH=/Users/isikurahiromitu/Documents/Vaults/Journal \
