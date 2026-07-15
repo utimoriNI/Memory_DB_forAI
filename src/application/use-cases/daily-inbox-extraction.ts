@@ -6,6 +6,7 @@ import type { MarkdownRepository } from "../../infrastructure/markdown/markdown-
 const STATE_PATH = "_state/daily-inbox-extraction.json";
 const MAX_INBOX_ITEMS = 20;
 const MAX_ITEM_CHARACTERS = 8_000;
+const MODEL_REASON_FALLBACK = "The model did not provide a reason.";
 const SECRET_PATTERNS = [
   /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/i,
   /\b(?:api[_-]?key|access[_-]?token|password)\s*[:=]\s*\S+/i,
@@ -17,7 +18,7 @@ const modelResultSchema = z.object({
     z.object({
       sourcePath: z.string().startsWith("_inbox/"),
       action: z.enum(["propose", "skip"]),
-      reason: z.string().trim().min(1).max(500),
+      reason: z.string().trim().min(1).max(500).optional(),
       summary: z.string().trim().min(1).max(500).optional(),
       topics: z.array(z.string().trim().min(1).max(80)).max(8).optional(),
       body: z.string().trim().min(1).max(4_000).optional(),
@@ -253,7 +254,10 @@ export async function runDailyInboxExtraction(
         !decision.body
       ) {
         const reason =
-          decision?.reason ?? "The model did not return a valid proposal for this item.";
+          decision?.reason ??
+          (decision
+            ? MODEL_REASON_FALLBACK
+            : "The model did not return a valid proposal for this item.");
         summary.skipped.push({ sourcePath: item.path, reason });
         state.processed[item.path] = {
           contentHash: item.contentHash,
@@ -289,7 +293,7 @@ export async function runDailyInboxExtraction(
         contentHash: item.contentHash,
         processedAt: nowIso(now),
         outcome: "proposed",
-        reason: decision.reason,
+        reason: decision.reason ?? MODEL_REASON_FALLBACK,
         proposalPath: path
       };
     }

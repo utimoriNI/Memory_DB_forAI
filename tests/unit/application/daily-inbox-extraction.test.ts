@@ -42,7 +42,6 @@ describe("daily Inbox extraction", () => {
                 {
                   sourcePath: inboxPath,
                   action: "propose",
-                  reason: "Portable storage is a reusable system design principle.",
                   summary: "Markdown source files keep the Vault portable and reviewable",
                   topics: ["memory", "markdown"],
                   body: "Use Markdown source files so the Vault remains portable and reviewable.",
@@ -90,9 +89,7 @@ describe("daily Inbox extraction", () => {
                   {
                     type: "output_text",
                     text: JSON.stringify({
-                      items: [
-                        { sourcePath: inboxPath, action: "skip", reason: "Not durable enough." }
-                      ]
+                      items: [{ sourcePath: inboxPath, action: "skip" }]
                     }),
                     annotations: []
                   }
@@ -114,7 +111,7 @@ describe("daily Inbox extraction", () => {
 
     expect(result.skipped).toContainEqual({
       sourcePath: inboxPath,
-      reason: "Not durable enough."
+      reason: "The model did not provide a reason."
     });
   });
 
