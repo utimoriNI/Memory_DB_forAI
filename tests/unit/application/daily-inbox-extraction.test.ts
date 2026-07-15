@@ -89,7 +89,7 @@ describe("daily Inbox extraction", () => {
                   {
                     type: "output_text",
                     text: JSON.stringify({
-                      items: [{ sourcePath: inboxPath, action: "skip" }]
+                      items: [{ path: inboxPath, action: "skip" }]
                     }),
                     annotations: []
                   }
