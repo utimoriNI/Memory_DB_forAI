@@ -24,6 +24,12 @@
       "processedAt": "2026-07-15T09:14:24.822Z",
       "outcome": "skipped",
       "reason": "The model did not provide a reason."
+    },
+    "_inbox/2026-07-15-ai-memory-extraction-reliability.md": {
+      "contentHash": "957317f142a50563e416d93bfb1e60a41112980e2cabf232657fe474536bf713",
+      "processedAt": "2026-07-15T19:38:11.056Z",
+      "outcome": "skipped",
+      "reason": "A proposal or memory already cites this Inbox item."
     }
   }
 }
