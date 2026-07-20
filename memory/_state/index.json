@@ -1,116 +1,29 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-15T12:55:45.191Z",
+  "generatedAt": "2026-07-20T08:02:20.369Z",
   "entries": [
     {
-      "id": "mem_project_personal_schedule_mcp_state",
-      "path": "_archive/approved/mem_project_personal_schedule_mcp_state.md",
-      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
-      "type": "project-state",
+      "id": "mem_session_journal_daily_reflection_garden_sync_20260715",
+      "path": "_staging/mem_session_journal_daily_reflection_garden_sync_20260715.md",
+      "summary": "Journal の daily-reflection と Garden 同期で発生した GitHub Actions 障害を切り分け、ワークフローを安定化した作業セッション",
+      "type": "session",
       "topics": [
-        "mcp",
-        "google-calendar",
-        "notion",
-        "project-state"
+        "journal",
+        "github-actions",
+        "garden",
+        "workflow-maintenance",
+        "incident-response"
       ],
       "status": "staged",
       "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "3ffdda8b261be074ab091817af0ccca380d63c8bf2b86c5f30706df0ec14b807"
-    },
-    {
-      "id": "mem_project_personal_schedule_mcp",
-      "path": "_archive/approved/mem_project_personal_schedule_mcp.md",
-      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
-      "type": "project",
-      "topics": [
-        "mcp",
-        "typescript",
-        "google-calendar",
-        "notion",
-        "personal-productivity"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "709bc97aeb49242c14f7e8c35fced6a0e117bfc6923977e69b8303f0b28b9cdc"
-    },
-    {
-      "id": "mem_raindrop_searcher_state_20260713",
-      "path": "_archive/approved/mem_raindrop_searcher_state_20260713.md",
-      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
-      "type": "project-state",
-      "topics": [
-        "raindrop",
-        "obsidian",
-        "semantic-search",
-        "vercel",
-        "github-actions"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "raindrop-searcher",
+      "project": "journal",
       "scope": [
         "personal-knowledge-management",
-        "search"
+        "software-maintenance"
       ],
-      "updatedAt": "2026-07-13",
+      "updatedAt": "2026-07-15",
       "related": [],
-      "contentHash": "e9f86c3b6e802c61d2519963592674767d49d0805aa3d502a59c3be807827a8b"
-    },
-    {
-      "id": "mem_session_ai_memory_admin_operations_20260714",
-      "path": "_archive/approved/mem_session_ai_memory_admin_operations_20260714.md",
-      "summary": "スマホ向けAI Memory Vault管理画面を整備し、日本語要約付きの承認フローとGitHub連携を運用可能にした作業セッション",
-      "type": "session",
-      "topics": [
-        "ai-memory-vault",
-        "mobile-admin",
-        "approval-workflow",
-        "cloudflare-workers",
-        "github"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "ai-memory-system",
-      "scope": [
-        "personal-knowledge-management"
-      ],
-      "updatedAt": "2026-07-14",
-      "related": [],
-      "contentHash": "43279bc6994e845774fb149520447af2c812b37a5d7ce2e880f8318942e74a94"
-    },
-    {
-      "id": "mem_session_personal_schedule_mcp_initial_implementation",
-      "path": "_archive/approved/mem_session_personal_schedule_mcp_initial_implementation.md",
-      "summary": "Initial Personal Schedule MCP implementation, external integration setup, and verification session",
-      "type": "session",
-      "topics": [
-        "mcp",
-        "implementation",
-        "google-oauth",
-        "notion",
-        "verification"
-      ],
-      "status": "staged",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "1e392fef4b88645b75944d50d0b9951477a0a49b195d1e40fafe7863b6f10689"
+      "contentHash": "901f1eb63305867752b3716dbda709eba13b3f12edda18a1560d6c189346c33f"
     },
     {
       "id": "mem_fleeting_conversation_growth_20260715",
@@ -318,28 +231,6 @@
       "contentHash": "7a2a6b0f929182edad24d8d5a5f3d8bf170039f75857bbb15aa79ad34d61349e"
     },
     {
-      "id": "mem_session_ai_memory_admin_operations_20260714",
-      "path": "projects/ai-memory-system/sessions/2026-07-14-mobile-admin-and-operations.md",
-      "summary": "スマホ向けAI Memory Vault管理画面を整備し、日本語要約付きの承認フローとGitHub連携を運用可能にした作業セッション",
-      "type": "session",
-      "topics": [
-        "ai-memory-vault",
-        "mobile-admin",
-        "approval-workflow",
-        "cloudflare-workers",
-        "github"
-      ],
-      "status": "active",
-      "pinned": false,
-      "project": "ai-memory-system",
-      "scope": [
-        "personal-knowledge-management"
-      ],
-      "updatedAt": "2026-07-14",
-      "related": [],
-      "contentHash": "5846ba6764649a32c1ac46ed1320f3e15d2548ab47516172dd78b08dd6918476"
-    },
-    {
       "id": "mem_session_ai_memory_extraction_reliability_20260715",
       "path": "projects/ai-memory-system/sessions/2026-07-15-ai-memory-extraction-reliability.md",
       "summary": "OpenAI 日次抽出と GitHub Actions 運用の安定化に関する作業セッション",
@@ -387,94 +278,6 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
-    },
-    {
-      "id": "mem_project_personal_schedule_mcp",
-      "path": "projects/personal-schedule-mcp/overview.md",
-      "summary": "Personal Schedule MCP project: Google Calendar and Notion task management server",
-      "type": "project",
-      "topics": [
-        "mcp",
-        "typescript",
-        "google-calendar",
-        "notion",
-        "personal-productivity"
-      ],
-      "status": "active",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "d0798c6903c0f33658243158716cb2b5b88d0223352aeb9e8c86b009c24807ea"
-    },
-    {
-      "id": "mem_session_personal_schedule_mcp_initial_implementation",
-      "path": "projects/personal-schedule-mcp/sessions/2026-07-11-to-2026-07-13-initial-implementation.md",
-      "summary": "Initial Personal Schedule MCP implementation, external integration setup, and verification session",
-      "type": "session",
-      "topics": [
-        "mcp",
-        "implementation",
-        "google-oauth",
-        "notion",
-        "verification"
-      ],
-      "status": "active",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "e8ba9032ba046d528d4e5f780397278c48e94ee71ea366ec972e2d414b52941e"
-    },
-    {
-      "id": "mem_project_personal_schedule_mcp_state",
-      "path": "projects/personal-schedule-mcp/STATE.md",
-      "summary": "Personal Schedule MCP v1 is implemented and Google Calendar read access is verified",
-      "type": "project-state",
-      "topics": [
-        "mcp",
-        "google-calendar",
-        "notion",
-        "project-state"
-      ],
-      "status": "active",
-      "pinned": false,
-      "project": "personal-schedule-mcp",
-      "scope": [
-        "personal-productivity"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "964861cb6fcc4ed4e5f82ee859d5f31e84e8f04ef9e712441de19628049b6aac"
-    },
-    {
-      "id": "mem_raindrop_searcher_state_20260713",
-      "path": "projects/raindrop-searcher/STATE.md",
-      "summary": "Raindrop と GitHub 上の Obsidian Vault を横断検索するWebアプリは、本番デプロイと差分同期を備え、検索品質・フィードバック・タグ選択を実装済み",
-      "type": "project-state",
-      "topics": [
-        "raindrop",
-        "obsidian",
-        "semantic-search",
-        "vercel",
-        "github-actions"
-      ],
-      "status": "active",
-      "pinned": false,
-      "project": "raindrop-searcher",
-      "scope": [
-        "personal-knowledge-management",
-        "search"
-      ],
-      "updatedAt": "2026-07-13",
-      "related": [],
-      "contentHash": "a1ddaafe0e30d31ebfa9a6076ce5418f40089da9f59cc57dd6ce1a5ddb09fd41"
     }
   ]
 }
