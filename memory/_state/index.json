@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-20T08:18:48.694Z",
+  "generatedAt": "2026-07-20T08:19:11.925Z",
   "entries": [
     {
       "id": "mem_session_fleeting_journal_memory_sync_20260720",
@@ -27,7 +27,7 @@
     },
     {
       "id": "mem_session_journal_daily_reflection_garden_sync_20260715",
-      "path": "_staging/mem_session_journal_daily_reflection_garden_sync_20260715.md",
+      "path": "_archive/approved/mem_session_journal_daily_reflection_garden_sync_20260715.md",
       "summary": "Journal の daily-reflection と Garden 同期で発生した GitHub Actions 障害を切り分け、ワークフローを安定化した作業セッション",
       "type": "session",
       "topics": [
@@ -46,7 +46,7 @@
       ],
       "updatedAt": "2026-07-15",
       "related": [],
-      "contentHash": "901f1eb63305867752b3716dbda709eba13b3f12edda18a1560d6c189346c33f"
+      "contentHash": "c301d0082b165bff93225092b4fe39e6f56e47e9162d493fdb07eb21f2107237"
     },
     {
       "id": "mem_fleeting_conversation_growth_20260715",
@@ -301,6 +301,29 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
+    },
+    {
+      "id": "mem_session_journal_daily_reflection_garden_sync_20260715",
+      "path": "projects/journal/sessions/2026-07-15-daily-reflection-garden-sync.md",
+      "summary": "Journal の daily-reflection と Garden 同期で発生した GitHub Actions 障害を切り分け、ワークフローを安定化した作業セッション",
+      "type": "session",
+      "topics": [
+        "journal",
+        "github-actions",
+        "garden",
+        "workflow-maintenance",
+        "incident-response"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "journal",
+      "scope": [
+        "personal-knowledge-management",
+        "software-maintenance"
+      ],
+      "updatedAt": "2026-07-20",
+      "related": [],
+      "contentHash": "4be678b5b68b96e62627bffa7bd10a0a1b9759b2de33ab7ca464f0be1530c56f"
     },
     {
       "id": "mem_session_fleeting_journal_memory_sync_20260720",

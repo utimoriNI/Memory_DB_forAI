@@ -19,18 +19,19 @@ scope:
   - personal-knowledge-management
   - software-maintenance
 project: journal
-createdAt: "2026-07-15"
-updatedAt: "2026-07-15"
+createdAt: 2026-07-15
+updatedAt: 2026-07-15
 lastReviewedAt: null
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
+reviewStatus: approved
 proposedAction: create
 targetPath: projects/journal/sessions/2026-07-15-daily-reflection-garden-sync.md
 riskLevel: low
 operationId: journal-daily-reflection-garden-sync-20260715
-proposalCreatedAt: "2026-07-15T13:08:05.000Z"
+proposalCreatedAt: 2026-07-15T13:08:05.000Z
+reviewedAt: 2026-07-20T08:19:11.925Z
 ---
 
 ### Journal daily-reflection 障害対応
