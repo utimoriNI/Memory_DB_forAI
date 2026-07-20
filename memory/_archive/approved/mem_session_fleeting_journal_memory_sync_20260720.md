@@ -22,18 +22,19 @@ scope:
   - personal-knowledge-management
   - self-development
 project: null
-createdAt: "2026-07-20"
-updatedAt: "2026-07-20"
+createdAt: 2026-07-20
+updatedAt: 2026-07-20
 lastReviewedAt: null
 validUntil: null
 supersedes: []
 related: []
-reviewStatus: pending
+reviewStatus: approved
 proposedAction: create
 targetPath: projects/personal-knowledge-management/sessions/2026-07-20-fleeting-journal-memory-sync.md
 riskLevel: low
 operationId: fleeting-journal-memory-sync-20260720
-proposalCreatedAt: "2026-07-20T08:04:57.000Z"
+proposalCreatedAt: 2026-07-20T08:04:57.000Z
+reviewedAt: 2026-07-20T08:18:48.694Z
 ---
 
 ### 保存対象

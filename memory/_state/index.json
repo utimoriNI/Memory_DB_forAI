@@ -1,7 +1,30 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-20T08:02:20.369Z",
+  "generatedAt": "2026-07-20T08:18:48.694Z",
   "entries": [
+    {
+      "id": "mem_session_fleeting_journal_memory_sync_20260720",
+      "path": "_archive/approved/mem_session_fleeting_journal_memory_sync_20260720.md",
+      "summary": "Fleetingの思考整理ノートと直近日記から、自己理解・人間関係・創作・学習に関する長期記憶候補を整理したセッション",
+      "type": "session",
+      "topics": [
+        "fleeting",
+        "journal",
+        "self-understanding",
+        "relationships",
+        "creative-practice",
+        "learning"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management",
+        "self-development"
+      ],
+      "updatedAt": "2026-07-20",
+      "related": [],
+      "contentHash": "2f0d7c5c6190694491331e699793dfda03e8d47e0f27ac7de7521edaf1953ae0"
+    },
     {
       "id": "mem_session_journal_daily_reflection_garden_sync_20260715",
       "path": "_staging/mem_session_journal_daily_reflection_garden_sync_20260715.md",
@@ -278,6 +301,29 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
+    },
+    {
+      "id": "mem_session_fleeting_journal_memory_sync_20260720",
+      "path": "projects/personal-knowledge-management/sessions/2026-07-20-fleeting-journal-memory-sync.md",
+      "summary": "Fleetingの思考整理ノートと直近日記から、自己理解・人間関係・創作・学習に関する長期記憶候補を整理したセッション",
+      "type": "session",
+      "topics": [
+        "fleeting",
+        "journal",
+        "self-understanding",
+        "relationships",
+        "creative-practice",
+        "learning"
+      ],
+      "status": "active",
+      "pinned": false,
+      "scope": [
+        "personal-knowledge-management",
+        "self-development"
+      ],
+      "updatedAt": "2026-07-20",
+      "related": [],
+      "contentHash": "7f3e39506f36087d4b3739b17e3e548658981be7935494d5c27e51c719d9a210"
     }
   ]
 }
