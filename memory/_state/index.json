@@ -1,7 +1,32 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-22T08:35:19.355Z",
+  "generatedAt": "2026-07-26T03:11:01.902Z",
   "entries": [
+    {
+      "id": "mem_session_journal_state_review_20260720",
+      "path": "_archive/approved/mem_session_journal_state_review_20260720.md",
+      "summary": "Journal の音声文字起こし・reflection生成・Garden同期・GitHub Actions運用の現状を整理した状態レビュー",
+      "type": "session",
+      "topics": [
+        "journal",
+        "github-actions",
+        "garden",
+        "daily-reflection",
+        "project-state"
+      ],
+      "status": "staged",
+      "pinned": false,
+      "project": "journal",
+      "scope": [
+        "personal-knowledge-management",
+        "software-maintenance"
+      ],
+      "updatedAt": "2026-07-20",
+      "related": [
+        "mem_session_journal_daily_reflection_garden_sync_20260715"
+      ],
+      "contentHash": "3581c99650bf020964c956249832f64b7b4e16e007b65206efec74fedf8380aa"
+    },
     {
       "id": "mem_fleeting_conversation_growth_20260715",
       "path": "knowledge/conversation-growth-realization.md",
@@ -255,6 +280,31 @@
       "updatedAt": "2026-07-12",
       "related": [],
       "contentHash": "989b674c56451aa08fac66e2f1d58f27ada004ca594259e2abad404bccba4ecf"
+    },
+    {
+      "id": "mem_session_journal_state_review_20260720",
+      "path": "projects/journal/sessions/2026-07-20-state-review.md",
+      "summary": "Journal の音声文字起こし・reflection生成・Garden同期・GitHub Actions運用の現状を整理した状態レビュー",
+      "type": "session",
+      "topics": [
+        "journal",
+        "github-actions",
+        "garden",
+        "daily-reflection",
+        "project-state"
+      ],
+      "status": "active",
+      "pinned": false,
+      "project": "journal",
+      "scope": [
+        "personal-knowledge-management",
+        "software-maintenance"
+      ],
+      "updatedAt": "2026-07-26",
+      "related": [
+        "mem_session_journal_daily_reflection_garden_sync_20260715"
+      ],
+      "contentHash": "bf848ceb8f620e62687bc8fbc6eff525121c6d8699ff2e70dcc169cce3c7e988"
     }
   ]
 }
